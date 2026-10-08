@@ -3,6 +3,22 @@
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let scrollAnimation = 0;
   let backgroundRotation = 0;
+  const resumeTabs = document.querySelector('.resume-jumps');
+  const trainingSection = document.getElementById('training');
+  let tabVisibilityFrame = 0;
+  function updateResumeTabs() {
+    tabVisibilityFrame = 0;
+    if (!resumeTabs || !trainingSection) return;
+    const boundary = header.getBoundingClientRect().height + resumeTabs.getBoundingClientRect().height + 24;
+    const outsideResume = trainingSection.getBoundingClientRect().top <= boundary;
+    resumeTabs.style.visibility = outsideResume ? 'hidden' : '';
+    resumeTabs.style.pointerEvents = outsideResume ? 'none' : '';
+  }
+  window.addEventListener('scroll', () => {
+    if (!tabVisibilityFrame) tabVisibilityFrame = window.requestAnimationFrame(updateResumeTabs);
+  }, {passive: true});
+  window.addEventListener('resize', updateResumeTabs);
+  updateResumeTabs();
   function scrollToSection(destination) {
     if (scrollAnimation) window.cancelAnimationFrame(scrollAnimation);
     const initialPosition = window.scrollY;
