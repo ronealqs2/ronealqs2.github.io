@@ -64,7 +64,7 @@
         return;
       }
       const scrollDistance = Math.max(0, window.scrollY);
-      graphic.style.transform = `rotate(${-12 + scrollDistance * .075}deg)`;
+      graphic.style.transform = `rotate(${-12 + scrollDistance * .15}deg)`;
     }
     function requestScrollRotation() {
       if (!rotationFrame) rotationFrame = window.requestAnimationFrame(updateScrollRotation);
