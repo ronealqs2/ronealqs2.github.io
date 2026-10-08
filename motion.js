@@ -50,6 +50,31 @@
   orbit.append(graphic);
   network.append(orbit);
   document.body.prepend(network);
+  if (!window.CSS || !window.CSS.supports('animation-timeline', 'scroll()')) {
+    let rotationFrame = 0;
+    let scrollRange = 1;
+    function measureScrollRange() {
+      scrollRange = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    }
+    function updateScrollRotation() {
+      rotationFrame = 0;
+      if (preference.matches) {
+        graphic.style.transform = '';
+        return;
+      }
+      const progress = Math.max(0, Math.min(1, window.scrollY / scrollRange));
+      graphic.style.transform = `rotate(${-12 + progress * 40}deg)`;
+    }
+    function requestScrollRotation() {
+      if (!rotationFrame) rotationFrame = window.requestAnimationFrame(updateScrollRotation);
+    }
+    measureScrollRange();
+    window.addEventListener('scroll', requestScrollRotation, {passive: true});
+    window.addEventListener('resize', () => { measureScrollRange(); requestScrollRotation(); });
+    window.addEventListener('load', () => { measureScrollRange(); requestScrollRotation(); });
+    preference.addEventListener('change', requestScrollRotation);
+    requestScrollRotation();
+  }
   let navigationPending = false;
   document.addEventListener('click', async event => {
     const link = event.target instanceof Element ? event.target.closest('a[href]') : null;
