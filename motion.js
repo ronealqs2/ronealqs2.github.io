@@ -50,7 +50,8 @@
   orbit.append(graphic);
   network.append(orbit);
   document.body.prepend(network);
-  if (!window.CSS || !window.CSS.supports('animation-timeline', 'scroll()')) {
+  {
+    graphic.style.animation = 'none';
     let rotationFrame = 0;
     let scrollRange = 1;
     function measureScrollRange() {
