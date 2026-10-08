@@ -1,4 +1,12 @@
 (() => {
+  function capitalizeHeadingText(node) {
+    if (node.nodeType === 3) {
+      node.textContent = node.textContent.replace(/\b[a-z]/g, character => character.toUpperCase());
+      return;
+    }
+    for (const child of node.childNodes || []) capitalizeHeadingText(child);
+  }
+  for (const heading of document.querySelectorAll?.('h1, h2, h3, h4, h5, h6') || []) capitalizeHeadingText(heading);
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   const network = document.createElement('div');
   network.className = 'ambient-network';
