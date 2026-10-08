@@ -63,8 +63,8 @@
         graphic.style.transform = '';
         return;
       }
-      const progress = Math.max(0, Math.min(1, window.scrollY / scrollRange));
-      graphic.style.transform = `rotate(${-12 + progress * 40}deg)`;
+      const scrollDistance = Math.max(0, window.scrollY);
+      graphic.style.transform = `rotate(${-12 + scrollDistance * .075}deg)`;
     }
     function requestScrollRotation() {
       if (!rotationFrame) rotationFrame = window.requestAnimationFrame(updateScrollRotation);
