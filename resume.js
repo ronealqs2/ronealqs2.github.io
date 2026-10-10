@@ -1,4 +1,26 @@
 const printButton = document.querySelector('#print-resume');
+const resumeViewTabs = Array.from(document.querySelectorAll('.resume-view-tabs [role="tab"]'));
+function selectResumeView(selectedTab) {
+  for (const tab of resumeViewTabs) {
+    const selected = tab === selectedTab;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    const panel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (panel) panel.hidden = !selected;
+  }
+}
+for (const tab of resumeViewTabs) {
+  tab.addEventListener('click', () => selectResumeView(tab));
+  tab.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const currentIndex = resumeViewTabs.indexOf(tab);
+    const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? resumeViewTabs.length - 1 : (currentIndex + (event.key === 'ArrowRight' ? 1 : -1) + resumeViewTabs.length) % resumeViewTabs.length;
+    selectResumeView(resumeViewTabs[nextIndex]);
+    resumeViewTabs[nextIndex].focus({preventScroll: true});
+  });
+}
+if (resumeViewTabs.length) selectResumeView(resumeViewTabs[0]);
 if (printButton) {
   printButton.addEventListener('click', () => window.print());
 }
