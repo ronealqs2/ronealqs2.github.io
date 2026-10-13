@@ -1,6 +1,63 @@
 (() => {
   const header = document.querySelector('.site-header');
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const navigation = header.querySelector('nav');
+  const sectionLinks = Array.from(navigation.querySelectorAll('a[href^="#"]'))
+    .map(link => ({link, section: document.getElementById(link.hash.slice(1))}))
+    .filter(item => item.section);
+  const indicator = document.createElement('span');
+  indicator.className = 'section-nav-indicator';
+  indicator.setAttribute('aria-hidden', 'true');
+  navigation.append(indicator);
+  let sectionPositions = [];
+  let activeSectionLink = null;
+  let navigationFrame = 0;
+  let headerHeight = 0;
+  function positionIndicator(link) {
+    const navigationBounds = navigation.getBoundingClientRect();
+    const linkBounds = link.getBoundingClientRect();
+    indicator.style.width = `${linkBounds.width}px`;
+    indicator.style.transform = `translate3d(${linkBounds.left - navigationBounds.left}px, ${linkBounds.bottom - navigationBounds.top - 3}px, 0)`;
+    indicator.classList.add('is-ready');
+  }
+  function updateActiveSection() {
+    navigationFrame = 0;
+    const readingPosition = window.scrollY + headerHeight + 64;
+    let current = sectionPositions[0];
+    for (const item of sectionPositions) {
+      if (item.top <= readingPosition) current = item;
+      else break;
+    }
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+      current = sectionPositions[sectionPositions.length - 1];
+    }
+    if (!current || activeSectionLink === current.link) return;
+    for (const item of sectionLinks) item.link.removeAttribute('aria-current');
+    current.link.setAttribute('aria-current', 'location');
+    activeSectionLink = current.link;
+    positionIndicator(current.link);
+  }
+  function measureSections() {
+    headerHeight = header.getBoundingClientRect().height;
+    sectionPositions = sectionLinks.map(item => ({
+      link: item.link,
+      top: item.section.getBoundingClientRect().top + window.scrollY
+    })).sort((first, second) => first.top - second.top);
+    updateActiveSection();
+    if (activeSectionLink) positionIndicator(activeSectionLink);
+  }
+  window.addEventListener('scroll', () => {
+    if (!navigationFrame) navigationFrame = window.requestAnimationFrame(updateActiveSection);
+  }, {passive: true});
+  window.addEventListener('resize', measureSections);
+  window.addEventListener('load', measureSections);
+  if ('ResizeObserver' in window) {
+    const sectionObserver = new ResizeObserver(measureSections);
+    sectionObserver.observe(header);
+    for (const item of sectionLinks) sectionObserver.observe(item.section);
+  }
+  if (document.fonts) document.fonts.ready.then(measureSections);
+  measureSections();
   let scrollAnimation = 0;
   let backgroundRotation = 0;
   const resumeTabs = document.querySelector('.resume-jumps');
