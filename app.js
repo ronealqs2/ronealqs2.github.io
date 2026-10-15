@@ -3,7 +3,22 @@ const projectCards = Array.from(document.querySelectorAll('#projects .project-ca
 const searchInput = document.querySelector('#project-search');
 const resultsStatus = document.querySelector('#results-status');
 const noResults = document.querySelector('#no-results');
+const projectStateKey = 'rq-portfolio-project-context';
+const parameters = new URLSearchParams(window.location.search);
+const canonicalPath = path => path.replace(/index\.html$/, '');
+let savedContext = null;
+try { savedContext = JSON.parse(sessionStorage.getItem(projectStateKey)); } catch {}
+const returning = parameters.get('return') === 'projects';
+const historyReturn = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+const canRestore = savedContext && canonicalPath(savedContext.path || '') === canonicalPath(window.location.pathname) && (returning || historyReturn);
 let activeFilter = 'All';
+const availableFilters = filterButtons.map(button => button.dataset.filter);
+if (canRestore && availableFilters.includes(savedContext.filter)) {
+  activeFilter = savedContext.filter;
+  searchInput.value = typeof savedContext.query === 'string' ? savedContext.query : '';
+} else if (availableFilters.includes(parameters.get('category'))) {
+  activeFilter = parameters.get('category');
+}
 
 function updateResults() {
   const query = searchInput.value.trim().toLowerCase();
@@ -29,3 +44,35 @@ for (const button of filterButtons) {
 }
 searchInput.addEventListener('input', updateResults);
 updateResults();
+
+function rememberProjectContext() {
+  try {
+    sessionStorage.setItem(projectStateKey, JSON.stringify({
+      path: window.location.pathname,
+      filter: activeFilter,
+      query: searchInput.value,
+      scroll: window.scrollY
+    }));
+  } catch {}
+}
+
+document.addEventListener('click', event => {
+  const link = event.target instanceof Element ? event.target.closest('#projects .project-card a[href]') : null;
+  if (link && new URL(link.href).origin === window.location.origin) rememberProjectContext();
+}, {capture: true});
+window.addEventListener('pagehide', rememberProjectContext);
+window.addEventListener('pageshow', event => {
+  if (!returning || event.persisted) return;
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+    if (canRestore && Number.isFinite(savedContext.scroll)) {
+      window.scrollTo({top: Math.max(0, savedContext.scroll), behavior: 'instant'});
+    } else {
+      const projects = document.getElementById('projects');
+      const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height || 0;
+      window.scrollTo({top: Math.max(0, projects.getBoundingClientRect().top + window.scrollY - headerHeight - 12), behavior: 'instant'});
+    }
+    const address = new URL(window.location.href);
+    address.searchParams.delete('return');
+    history.replaceState(history.state, '', address.pathname + address.search + address.hash);
+  }));
+});
