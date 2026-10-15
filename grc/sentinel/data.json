@@ -305,7 +305,21 @@
       "4",
       "5"
     ],
+    "Impact": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
     "Residual likelihood": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "Residual impact": [
       "1",
       "2",
       "3",
@@ -339,6 +353,13 @@
       "Completed"
     ],
     "Design result": [
+      "Not assessed",
+      "Effective",
+      "Partially effective",
+      "Ineffective",
+      "Not applicable"
+    ],
+    "Operating result": [
       "Not assessed",
       "Effective",
       "Partially effective",
