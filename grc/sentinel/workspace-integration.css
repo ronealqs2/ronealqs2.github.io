@@ -1,8 +1,13 @@
-.portfolio-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; padding: 12px 38px; border-bottom: 1px solid #25354c; background: #091321d9; color: #a9bad0; font-size: 10px; }
+.portfolio-breadcrumb { position: sticky; top: 0; z-index: 25; display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 12px 38px; border-bottom: 1px solid #35566a; background: #091321f5; backdrop-filter: blur(18px); box-shadow: 0 6px 24px #0003; color: #a9bad0; font-size: 10px; }
 .portfolio-breadcrumb a { display: inline-flex; align-items: center; min-height: 24px; padding: 0; border: 0; border-radius: 0; background: transparent; color: #9de7d3; font-size: 10px; }
 .portfolio-breadcrumb a:hover { background: none; color: #c8fff0; text-decoration: underline; }
+.portfolio-breadcrumb .portfolio-back-button { min-height: 44px; gap: 9px; padding: 10px 16px; border: 1px solid #a2eed9; border-radius: 8px; background: #7de1c6; color: #082d2b; font-size: 13px; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 18px #6dcbb51a; }
+.portfolio-breadcrumb .portfolio-back-button:hover { background: #a2eed9; color: #082d2b; text-decoration: none; box-shadow: 0 6px 22px #6dcbb52a; }
+.portfolio-breadcrumb .portfolio-back-button:focus-visible { outline: 3px solid #ecfff9; outline-offset: 4px; }
+.portfolio-back-button svg { flex-shrink: 0; }
+.portfolio-trail { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
 .portfolio-breadcrumb span[aria-hidden] { color: #58748c; }
 .portfolio-breadcrumb span[aria-current] { color: #c5d5e5; }
 @media (max-width: 1150px) { .portfolio-breadcrumb { padding-inline: 24px; } }
-@media (max-width: 570px) { .portfolio-breadcrumb { gap: 6px; padding: 9px 16px; font-size: 9px; } .portfolio-breadcrumb a { min-height: 32px; font-size: 10px; } }
+@media (max-width: 570px) { .portfolio-breadcrumb { padding: 10px 16px; } .portfolio-trail { display: none; } .portfolio-breadcrumb .portfolio-back-button { min-height: 44px; font-size: 13px; } }
 @media print { .portfolio-breadcrumb { display: none; } }
