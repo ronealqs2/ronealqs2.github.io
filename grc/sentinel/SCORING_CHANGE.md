@@ -1,14 +1,16 @@
-# Scoring decision — October 14, 2026
+# Scoring decision — latest supplied workbook
 
-At the user's direction, restore High to 12–19 and Critical to 20–25.
+The latest user-supplied workbook is authoritative for the website and its Excel download. It changes the Low/Moderate boundary and retains the previously agreed High/Critical boundary.
 
-| Rating | Previous delivered range | Current range |
+| Rating | Previously published | Latest workbook |
 |---|---|---|
-| Low | 1–4 | 1–4 |
-| Moderate | 5–9 | 5–11 |
-| High | 10–16 | 12–19 |
-| Critical | 17–25 | 20–25 |
+| Low | 1–4 | 1–5 |
+| Moderate | 5–11 | 6–11 |
+| High | 12–19 | 12–19 |
+| Critical | 20–25 | 20–25 |
 
-Moderate includes 10–11 to maintain complete, non-overlapping coverage of 1–25. The methodology change applies to inherent and residual ratings, dashboard summaries, chart categories, heatmap bands and the website calculator. The workbook's existing layout, navigation, charts and data-validation objects are preserved.
+The bands cover scores 1–25 without gaps or overlaps and apply consistently to inherent and residual ratings, filters, dashboard summaries, charts, heatmap cells and the calculator. This is a user-defined training rubric, not a claimed standard-mandated scale. The workbook's own Scoring Methodology decision note records Low 1–5, Moderate 6–11, High 12–19 and Critical 20–25. The supplied file is distributed unchanged, including its formulas, table formatting and navigation.
 
-R-001 remains likelihood 3 × impact 4 = 12 High, simulated and pending validation. No assessment evidence or substantive findings were added. All 25 scores were tested for both inherent and residual rating formulas.
+R-001 (Missing MFA) and R-002 (Excessive Access Permissions) each use likelihood 3 × impact 4 = 12 High. Both are supplied fictional training scenarios, remain pending validation and have unassessed residual risk.
+
+R-002 is referenced in row 8 of Control Assessment, Evidence Tracker and Remediation Tracker without the corresponding record IDs or substantive fields. These incomplete source rows are flagged, not converted into invented controls, evidence or actions. No assessment evidence, validated findings or verified remediation outcomes were added.

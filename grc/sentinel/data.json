@@ -2,59 +2,39 @@
   "meta": {
     "company": "Sentinel Defense Solutions",
     "project": "GRC Project 01",
-    "source": "Final user-approved workbook with requested scoring-band correction",
+    "source": "Latest user-supplied workbook",
     "sourceFile": "Sentinel_Defense_GRC_Project_01.xlsx",
-    "sha256": "606c3810a4aa1ccd519e55eafdebde9fd1b4311a146bc5b97f63de295d44ed0f",
+    "sha256": "60ea32c77b32b050f0c28e15213bab167e891e973477c40f3520913641534251",
     "imported": "2026-10-14",
-    "scenario": "Fictional training scenario; no validated findings inferred.",
-    "scoringRevision": "2026-10-14-restored-user-bands",
-    "scoringDecision": {
-      "date": "2026-10-14",
-      "reason": "Restore user-defined High and Critical bands; extend Moderate through 11 to maintain complete coverage.",
-      "previous": {
-        "Low": [
-          1,
-          4
-        ],
-        "Moderate": [
-          5,
-          9
-        ],
-        "High": [
-          10,
-          16
-        ],
-        "Critical": [
-          17,
-          25
-        ]
+    "scenario": "Fictional training scenarios; no validated findings inferred.",
+    "scoringRevision": "user-workbook-60ea32c77b32",
+    "scoringDecision": "Scoring decision | October 14, 2026: Restored user-defined bands: Low 1–5, Moderate 6–11, High 12–19, Critical 20–25. Supersedes High 10–16 / Critical 17–25. Moderate covers 6–11 so the scale has no gaps. R-001: 3 × 4 = 12 High remains simulated and pending validation.",
+    "incompleteRows": [
+      {
+        "table": "Control Assessment",
+        "row": 8,
+        "missingId": "Control ID",
+        "fields": {
+          "Risk ID": "R-002"
+        }
       },
-      "current": {
-        "Low": [
-          1,
-          4
-        ],
-        "Moderate": [
-          5,
-          11
-        ],
-        "High": [
-          12,
-          19
-        ],
-        "Critical": [
-          20,
-          25
-        ]
+      {
+        "table": "Evidence Tracker",
+        "row": 8,
+        "missingId": "Evidence ID",
+        "fields": {
+          "Risk ID": "R-002"
+        }
       },
-      "r001": {
-        "score": 12,
-        "rating": "High",
-        "validation": "Pending validation"
-      },
-      "testedScores": 25,
-      "note": "Scoring decision | October 14, 2026: Restored user-defined bands: Low 1–4, Moderate 5–11, High 12–19, Critical 20–25. Supersedes High 10–16 / Critical 17–25. Moderate covers 10–11 so the scale has no gaps. R-001: 3 × 4 = 12 High remains simulated and pending validation."
-    }
+      {
+        "table": "Remediation Tracker",
+        "row": 8,
+        "missingId": "Action ID",
+        "fields": {
+          "Risk ID": "R-002"
+        }
+      }
+    ]
   },
   "tables": {
     "Risk Register": {
@@ -85,8 +65,8 @@
         {
           "Risk ID": "R-001",
           "Risk title": "Missing MFA",
-          "Scenario fact / source": "Fictional Sentinel Defense Solutions scenario: missing MFA. Supplied scenario values: likelihood 3, impact 4.",
-          "Unverified assumptions": "Affected accounts, applications, exceptions, duration, exploitability and business exposure are unverified.",
+          "Scenario fact / source": "Sentinel Defense Solutions' fictional case study identifies that some employees do not have multifactor authentication (MFA) enabled. Source: Project 01 fictional case study. The number of affected accounts and whether privileged accounts are included have not been established.",
+          "Unverified assumptions": "The number and roles of accounts without MFA, identity provider configuration, MFA enforcement policies, exceptions, compensating controls, and historical authentication activity have not been verified. No account compromise or data breach has been established.",
           "Scope / asset": "Pending scope confirmation",
           "Category": "Identity and access",
           "Likelihood": 3,
@@ -102,7 +82,30 @@
           "Residual impact": null,
           "Residual score": null,
           "Residual rating": null,
-          "Assessment notes": "Simulated assessment only. Owner and treatment are proposals; residual risk is unassessed. Confirm scope and collect evidence before validating.",
+          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Inconsistent MFA enforcement increases the possibility of unauthorized account access if credentials are compromised. Potential consequences include exposure of sensitive records, operational disruption, and contractual or financial impacts. Recommend enforcing MFA across applicable accounts, prioritizing privileged access, reviewing approved exceptions, and monitoring authentication activity. Validate through identity-provider configurations, account-level MFA coverage reports, exception records, and relevant authentication logs. No compromise or confirmed control failure beyond the stated MFA gap has been established.",
+          "Dashboard included": 1
+        },
+        {
+          "Risk ID": "R-002",
+          "Risk title": "Excessive Access Permissions",
+          "Scenario fact / source": "Sentinel Defense Solutions' fictional case scenario identifies concerns that some employees may have access to files beyond their assigned job responsibilities. Source: Project 01 fictional case study.",
+          "Unverified assumptions": "The number of affected employees, specific file repositories, actual permission assignments, sensitivity of accessible records, effectiveness of existing access controls, and frequency of access reviews have not been verified.",
+          "Scope / asset": "Customer records, employee PII, contract documentation",
+          "Category": "Identity and access",
+          "Likelihood": 3,
+          "Impact": 4,
+          "Inherent score": 12,
+          "Inherent rating": "High",
+          "Proposed owner": "IT Security Manager — proposed",
+          "Treatment": "Mitigate",
+          "Validation status": "Pending validation",
+          "Workflow status": "Proposed",
+          "Evidence IDs": null,
+          "Residual likelihood": null,
+          "Residual impact": null,
+          "Residual score": null,
+          "Residual rating": null,
+          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Suspected excessive permissions could allow employees or compromised accounts to access, modify, or disclose sensitive information beyond legitimate business requirements. Recommend validating current permissions against documented job responsibilities, removing unjustified access, enforcing least privilege, and establishing periodic access reviews. Request permission exports, role definitions, access approvals, group memberships, and prior review records. The extent of excessive access, effectiveness of existing controls, and any actual unauthorized disclosure remain unverified.",
           "Dashboard included": 1
         }
       ]
@@ -275,12 +278,8 @@
     ]
   },
   "scoring": {
-    "Low": {
-      "min": 1,
-      "max": 4
-    },
     "Moderate": {
-      "min": 5,
+      "min": 6,
       "max": 11
     },
     "High": {
@@ -290,6 +289,10 @@
     "Critical": {
       "min": 20,
       "max": 25
+    },
+    "Low": {
+      "min": 1,
+      "max": 5
     }
   }
 }
