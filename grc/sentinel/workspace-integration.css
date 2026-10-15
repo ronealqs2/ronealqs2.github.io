@@ -11,3 +11,8 @@
 @media (max-width: 1150px) { .portfolio-breadcrumb { padding-inline: 24px; } }
 @media (max-width: 570px) { .portfolio-breadcrumb { padding: 10px 16px; } .portfolio-trail { display: none; } .portfolio-breadcrumb .portfolio-back-button { min-height: 44px; font-size: 13px; } }
 @media print { .portfolio-breadcrumb { display: none; } }
+.assessment-readiness { margin-top: 32px; }
+.assessment-readiness > .panel, .assessment-readiness > .dashboard-grid { margin-bottom: 24px; }
+.assessment-readiness .traceability-note { color: #e6c673; margin-bottom: 0; }
+.assessment-readiness .summary-table { min-width: 760px; }
+.assessment-readiness .summary-table td { max-width: 270px; white-space: normal; overflow-wrap: anywhere; }

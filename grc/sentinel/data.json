@@ -4,37 +4,12 @@
     "project": "GRC Project 01",
     "source": "Latest user-supplied workbook",
     "sourceFile": "Sentinel_Defense_GRC_Project_01.xlsx",
-    "sha256": "60ea32c77b32b050f0c28e15213bab167e891e973477c40f3520913641534251",
-    "imported": "2026-10-14",
+    "sha256": "4ea1f04e46c8d3b6489688013e582b9f703b9a5ca576a9549eece8696e2376be",
+    "imported": "2026-10-15",
     "scenario": "Fictional training scenarios; no validated findings inferred.",
-    "scoringRevision": "user-workbook-60ea32c77b32",
+    "scoringRevision": "user-workbook-4ea1f04e46c8",
     "scoringDecision": "Scoring decision | October 14, 2026: Restored user-defined bands: Low 1–5, Moderate 6–11, High 12–19, Critical 20–25. Supersedes High 10–16 / Critical 17–25. Moderate covers 6–11 so the scale has no gaps. R-001: 3 × 4 = 12 High remains simulated and pending validation.",
-    "incompleteRows": [
-      {
-        "table": "Control Assessment",
-        "row": 8,
-        "missingId": "Control ID",
-        "fields": {
-          "Risk ID": "R-002"
-        }
-      },
-      {
-        "table": "Evidence Tracker",
-        "row": 8,
-        "missingId": "Evidence ID",
-        "fields": {
-          "Risk ID": "R-002"
-        }
-      },
-      {
-        "table": "Remediation Tracker",
-        "row": 8,
-        "missingId": "Action ID",
-        "fields": {
-          "Risk ID": "R-002"
-        }
-      }
-    ]
+    "incompleteRows": []
   },
   "tables": {
     "Risk Register": {
@@ -107,6 +82,29 @@
           "Residual rating": null,
           "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Suspected excessive permissions could allow employees or compromised accounts to access, modify, or disclose sensitive information beyond legitimate business requirements. Recommend validating current permissions against documented job responsibilities, removing unjustified access, enforcing least privilege, and establishing periodic access reviews. Request permission exports, role definitions, access approvals, group memberships, and prior review records. The extent of excessive access, effectiveness of existing controls, and any actual unauthorized disclosure remain unverified.",
           "Dashboard included": 1
+        },
+        {
+          "Risk ID": "R-003",
+          "Risk title": "Shared Administrator Accounts",
+          "Scenario fact / source": "Sentinel Defense Solutions' fictional case study states that an external IT support vendor uses shared administrator accounts. Source: Project 01 fictional case study. The account privileges, number of users, affected systems, and existing safeguards have not been established.",
+          "Unverified assumptions": "The number and identities of vendor personnel using shared administrator accounts, account privileges, affected systems, MFA enforcement, credential-management practices, activity attribution, access approvals, and existing monitoring controls have not been verified. No account compromise, misuse, or security incident has been established. ",
+          "Scope / asset": "Proposed scope: shared vendor administrator accounts, systems managed by the external IT provider, and information accessible through those systems. Actual access scope and data sensitivity require confirmation. ",
+          "Category": "Identity and access",
+          "Likelihood": 3,
+          "Impact": 4,
+          "Inherent score": 12,
+          "Inherent rating": "High",
+          "Proposed owner": "IT Security Manager — Proposed",
+          "Treatment": "Mitigate",
+          "Validation status": "Pending validation",
+          "Workflow status": "Proposed",
+          "Evidence IDs": null,
+          "Residual likelihood": null,
+          "Residual impact": null,
+          "Residual score": null,
+          "Residual rating": null,
+          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Shared administrator accounts used by an external IT support vendor may reduce individual accountability and complicate access revocation. Unauthorized use or compromise of privileged credentials could result in system changes, disclosure of accessible information, or operational disruption. Recommend confirming account scope and authorized users, replacing shared access with individually attributable privileged identities where feasible, enforcing appropriate MFA and least privilege, and reviewing privileged activity monitoring. Validate using privileged-account inventories, vendor access approvals, account permissions, MFA configurations, and dated administrative activity records. No unauthorized activity or incident has been established. ",
+          "Dashboard included": 1
         }
       ]
     },
@@ -129,16 +127,44 @@
         {
           "Control ID": "C-001",
           "Risk ID": "R-001",
-          "Proposed control objective": "Proposed: require MFA for confirmed in-scope accounts and applications.",
-          "Design test plan": "Obtain MFA policy, enforcement configuration and documented exceptions; compare approved scope to configured coverage.",
-          "Operating test plan": "After scope confirmation, sample dated authentication and enforcement records; inspect bypasses and exceptions over an agreed period.",
+          "Proposed control objective": "Enforce MFA on all applicable employee and privileged accounts, with documented exceptions and approved compensating safeguards where necessary.",
+          "Design test plan": "Keep the MFA policy/configuration review, but include enforcement scope, privileged accounts, exceptions, and approved compensating controls.",
+          "Operating test plan": "Keep the authentication sampling approach; add checks for new accounts, privileged accounts, exception handling, and dated evidence across the assessment period.",
           "Design result": "Not assessed",
           "Operating result": "Not assessed",
-          "Evidence IDs": null,
+          "Evidence IDs": "E-001",
           "Assessor": null,
           "Assessment date": null,
           "Validation status": "Pending validation",
           "Facts / assumptions / notes": "All control details and tests are proposals. No control failure or effectiveness conclusion has been validated."
+        },
+        {
+          "Control ID": "C-002",
+          "Risk ID": "R-002",
+          "Proposed control objective": "Restrict access to sensitive files according to approved job responsibilities and least-privilege principles. ",
+          "Design test plan": "Review access-control policies, role definitions, approval workflows, and permission configurations to determine whether the proposed controls would restrict unnecessary access.",
+          "Operating test plan": "After scope confirmation, sample employee accounts and sensitive folders. Compare actual permissions against approved roles and access requests; inspect dated access reviews and remediation records.",
+          "Design result": "Not assessed",
+          "Operating result": "Not assessed",
+          "Evidence IDs": "E-002",
+          "Assessor": null,
+          "Assessment date": null,
+          "Validation status": "Pending validation",
+          "Facts / assumptions / notes": "Proposed least-privilege control. Existing permission restrictions, approval processes, and review effectiveness have not been verified. No control test has been performed."
+        },
+        {
+          "Control ID": "C-003",
+          "Risk ID": "R-003",
+          "Proposed control objective": "Ensure external IT vendor administrators use individually attributable, approved privileged access with MFA, least-privilege permissions, and appropriate activity logging and monitoring. Shared administrator credentials should be eliminated where feasible or subject to documented, approved safeguards.  ",
+          "Design test plan": "Review the vendor access policy, privileged-account inventory, administrator identity configurations, role definitions, MFA requirements, and access approval procedures. Compare documented requirements and configurations against the control objective to determine whether individual accountability, least privilege, and appropriate safeguards are adequately designed.",
+          "Operating test plan": "After defining the assessment period and population, select a documented sample of vendor administrator accounts and privileged sessions. Compare each sampled account with approved access records, assigned roles, MFA enforcement records, and privileged activity logs. Determine whether access was individually attributable, authorized, appropriately restricted, and monitored. Record exceptions against predefined criteria. ",
+          "Design result": "Not assessed",
+          "Operating result": "Not assessed",
+          "Evidence IDs": "E-003",
+          "Assessor": null,
+          "Assessment date": null,
+          "Validation status": "Pending validation",
+          "Facts / assumptions / notes": "Proposed privileged-access control and test procedures. The fictional scenario establishes use of shared vendor administrator accounts, but actual account privileges, authorized users, MFA enforcement, and monitoring practices remain unverified. No design or operating effectiveness testing has been performed."
         }
       ]
     },
@@ -164,9 +190,9 @@
           "Evidence ID": "E-001",
           "Risk ID": "R-001",
           "Control ID": "C-001",
-          "Requested evidence": "Proposed evidence package: MFA policy, enforcement configuration, exception register and dated authentication records.",
+          "Requested evidence": "MFA policy, identity-provider enforcement configurations, account-level MFA coverage report, privileged-account coverage, approved exception register, compensating-control documentation, and dated authentication records.",
           "Purpose / proposed coverage": "Confirm scope; evaluate design and operating effectiveness. Sampling population and period remain unverified.",
-          "Custodian": null,
+          "Custodian": "IT / Identity Administrator - proposed",
           "Request date": null,
           "Due date": null,
           "Received date": null,
@@ -175,6 +201,38 @@
           "Reviewer": null,
           "Validation status": "Pending validation",
           "Review notes": "No evidence received or reviewed. E-001 identifies a planned request only."
+        },
+        {
+          "Evidence ID": "E-002",
+          "Risk ID": "R-002",
+          "Control ID": "C-002",
+          "Requested evidence": "Current file-permission and group-membership exports, role definitions, approved access requests, historical permission-change records where available, and dated access-review results.",
+          "Purpose / proposed coverage": "Determine whether permissions to sensitive files align with approved job responsibilities and whether unnecessary access is identified and removed.",
+          "Custodian": "IT / IAM Administrator - proposed, pending confirmation",
+          "Request date": null,
+          "Due date": null,
+          "Received date": null,
+          "Status": "Planned request",
+          "Evidence location": null,
+          "Reviewer": null,
+          "Validation status": "Pending validation",
+          "Review notes": "Evidence has not been requested, received, or reviewed. Scope, affected repositories, permissions, and access-review effectiveness remain unverified."
+        },
+        {
+          "Evidence ID": "E-003",
+          "Risk ID": "R-003",
+          "Control ID": "C-003",
+          "Requested evidence": "Privileged-account inventory; vendor administrator personnel roster; account-to-user mappings; role and permission exports; vendor access approval records; MFA enforcement configurations and dated sign-in records; privileged session/activity logs; and documented shared-account exceptions or compensating safeguards, if applicable. ",
+          "Purpose / proposed coverage": "Privileged-account inventory; vendor administrator personnel roster; account-to-user mappings; role and permission exports; vendor access approval records; MFA enforcement configurations and dated sign-in records; privileged session/activity logs; and documented shared-account exceptions or compensating safeguards, if applicable.",
+          "Custodian": "Sentinel IT / IAM Administrator and external IT vendor administrator - proposed, pending confirmation.",
+          "Request date": null,
+          "Due date": null,
+          "Received date": null,
+          "Status": "Planned request",
+          "Evidence location": null,
+          "Reviewer": null,
+          "Validation status": "Pending validation",
+          "Review notes": "Planned evidence request only. No evidence has been requested, received, or reviewed. Before testing, confirm source-system coverage, record dates, completeness, and reliability; reconcile vendor records with Sentinel account inventories and approvals; investigate missing or inconsistent records. No control effectiveness conclusion has been reached."
         }
       ]
     },
@@ -197,8 +255,8 @@
         {
           "Action ID": "A-001",
           "Risk ID": "R-001",
-          "Proposed action": "Confirm scope and exceptions, then propose MFA enforcement and test coverage with the security team.",
-          "Proposed owner": "Security owner — proposed",
+          "Proposed action": "Confirm MFA coverage and approved exceptions; enforce MFA on applicable employee and privileged accounts; implement approved compensating safeguards where exceptions are necessary; verify enforcement using updated configurations and account-level coverage reports.",
+          "Proposed owner": "Security owner - proposed",
           "Approval status": "Pending approval",
           "Workflow status": "Proposed",
           "Target date": null,
@@ -206,7 +264,35 @@
           "Closure evidence IDs": null,
           "Closure validation": "Pending validation",
           "Days overdue": null,
-          "Notes / dependencies": "Mitigate is the proposed treatment. Obtain owner acceptance and an approved plan before scheduling. Closure requires evidence and independent review."
+          "Notes / dependencies": "Confirm identity-provider scope, affected accounts, privileged access, and approved exceptions. Obtain risk-owner approval and assign implementation responsibility before scheduling changes. No corrective action or independent closure verification has occurred."
+        },
+        {
+          "Action ID": "A-002",
+          "Risk ID": "R-002",
+          "Proposed action": "Review access permissions against approved job responsibilities; identify and remove unjustified access following authorization; establish periodic access reviews; independently verify corrected permissions.   ",
+          "Proposed owner": "IT / IAM Administrator - proposed",
+          "Approval status": "Pending approval",
+          "Workflow status": "Proposed",
+          "Target date": null,
+          "Completed date": null,
+          "Closure evidence IDs": null,
+          "Closure validation": "Pending validation",
+          "Days overdue": null,
+          "Notes / dependencies": "Confirm affected repositories and roles; obtain data-owner approval for access changes; document authorized exceptions; establish review frequency and closure criteria. No remediation has been performed or verified."
+        },
+        {
+          "Action ID": "A-003",
+          "Risk ID": "R-003",
+          "Proposed action": "Confirm the population and scope of vendor privileged accounts; replace shared administrator access with individually attributable, approved accounts where feasible; enforce MFA and least-privilege permissions; disable or appropriately safeguard legacy shared credentials; implement privileged activity logging, periodic access reviews, and timely access revocation. Independently verify the implemented changes before recommending closure. ",
+          "Proposed owner": "Sentinel IAM Administrator - proposed",
+          "Approval status": "Pending approval",
+          "Workflow status": "Proposed",
+          "Target date": null,
+          "Completed date": null,
+          "Closure evidence IDs": null,
+          "Closure validation": "Pending validation",
+          "Days overdue": null,
+          "Notes / dependencies": "Confirm affected systems, vendor administrator roster, technical compatibility, and operational support requirements. Obtain risk-owner and applicable system-owner approvals before implementation. Coordinate changes with the external IT vendor to prevent service disruption. Define approved exceptions and compensating safeguards where individual accounts are not technically feasible. Closure requires verified account configurations, shared-account disposition, access approvals, MFA enforcement, and attributable privileged activity records. No remediation has been approved, performed, or validated."
         }
       ]
     }
