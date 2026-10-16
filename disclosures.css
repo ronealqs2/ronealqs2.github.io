@@ -1,0 +1,33 @@
+.disclosure-clip,
+.disclosure-body {
+  display: flow-root;
+  min-width: 0;
+}
+
+.independent-tiles {
+  grid-auto-rows: 1px;
+  grid-auto-flow: row dense;
+  row-gap: 0;
+  align-items: start;
+}
+
+.independent-tiles > * {
+  align-self: start;
+  min-width: 0;
+}
+
+.independent-tiles.independent-tiles-single {
+  grid-auto-rows: auto;
+  row-gap: var(--independent-tile-gap, 24px);
+}
+
+@media print {
+  .independent-tiles {
+    grid-auto-rows: auto;
+    row-gap: var(--independent-tile-gap, 24px);
+  }
+
+  .independent-tiles > * {
+    grid-row-end: auto !important;
+  }
+}

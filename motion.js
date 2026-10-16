@@ -138,3 +138,6 @@
     animations.clear();
   });
 })();
+
+import('./disclosures.js?v=20261016-smooth-tiles').catch(error => console.warn('Dropdown enhancement unavailable:', error));
+
