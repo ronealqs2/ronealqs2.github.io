@@ -3,6 +3,7 @@ const projectCards = Array.from(document.querySelectorAll('#projects .project-ca
 const searchInput = document.querySelector('#project-search');
 const resultsStatus = document.querySelector('#results-status');
 const noResults = document.querySelector('#no-results');
+const moreProjects = document.querySelector('#more-projects');
 const projectStateKey = 'rq-portfolio-project-context';
 const parameters = new URLSearchParams(window.location.search);
 const canonicalPath = path => path.replace(/index\.html$/, '');
@@ -22,6 +23,7 @@ if (canRestore && availableFilters.includes(savedContext.filter)) {
 
 function updateResults() {
   const query = searchInput.value.trim().toLowerCase();
+  if (moreProjects && (activeFilter !== 'All' || query)) moreProjects.open = true;
   let visibleCount = 0;
   for (const card of projectCards) {
     const matchesCategory = activeFilter === 'All' || card.dataset.category === activeFilter;
@@ -33,7 +35,9 @@ function updateResults() {
     button.setAttribute('aria-pressed', String(button.dataset.filter === activeFilter));
   }
   noResults.hidden = visibleCount !== 0;
-  resultsStatus.textContent = `${visibleCount} project${visibleCount === 1 ? '' : 's'} shown`;
+  resultsStatus.textContent = moreProjects && !moreProjects.open && activeFilter === 'All' && !query
+    ? `${visibleCount} projects available · 3 featured`
+    : `${visibleCount} project${visibleCount === 1 ? '' : 's'} shown`;
 }
 
 for (const button of filterButtons) {
@@ -43,6 +47,7 @@ for (const button of filterButtons) {
   });
 }
 searchInput.addEventListener('input', updateResults);
+if (moreProjects) moreProjects.addEventListener('toggle', updateResults);
 updateResults();
 
 function rememberProjectContext() {
@@ -76,3 +81,4 @@ window.addEventListener('pageshow', event => {
     history.replaceState(history.state, '', address.pathname + address.search + address.hash);
   }));
 });
+
