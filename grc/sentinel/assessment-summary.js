@@ -9,14 +9,38 @@ window.SENTINEL_SUMMARY = (() => {
   function assessed(control) {
     return ['Design result', 'Operating result'].every(field => present(control[field]) && control[field] !== 'Not assessed');
   }
-  function verified(action) {
-    return action['Approval status'] === 'Approved' && action['Workflow status'] === 'Completed' && hasDate(action['Completed date']) && present(action['Closure evidence IDs']) && action['Closure validation'] === 'Validated';
+  function notFuture(value) {
+    if (!hasDate(value)) return false;
+    const today = new Date();
+    const day = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    if (typeof value === 'number') {
+      const serialToday = Math.floor(Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) / 86400000) + 25569;
+      return value <= serialToday;
+    }
+    return new Date(value + 'T00:00:00') <= day;
   }
-  function prerequisite(action) {
+  function closureEvidence(action, evidence = []) {
+    const identifier = String(action['Closure evidence IDs'] ?? '').trim();
+    if (!identifier) return 'Link one primary closure evidence ID';
+    const matches = evidence.filter(record => record['Evidence ID'] === identifier);
+    if (matches.length !== 1) return 'Use one existing, unique evidence ID';
+    const record = matches[0];
+    if (!present(action['Risk ID']) || record['Risk ID'] !== action['Risk ID']) return 'Link evidence for the same risk';
+    if (!notFuture(record['Received date'])) return 'Record a valid evidence received date';
+    if (!present(record['Evidence location']) || !present(record.Reviewer)) return 'Record evidence location and reviewer';
+    if (record.Status !== 'Reviewed') return 'Review closure evidence';
+    if (record['Validation status'] !== 'Validated') return 'Validate closure evidence';
+    return '';
+  }
+  function verified(action, evidence = []) {
+    return action['Approval status'] === 'Approved' && action['Workflow status'] === 'Completed' && notFuture(action['Completed date']) && !closureEvidence(action, evidence) && action['Closure validation'] === 'Validated';
+  }
+  function prerequisite(action, evidence = []) {
     if (action['Approval status'] !== 'Approved') return 'Obtain approval';
     if (action['Workflow status'] === 'Completed') {
-      if (!hasDate(action['Completed date'])) return 'Record completion date';
-      if (!present(action['Closure evidence IDs'])) return 'Link closure evidence';
+      if (!notFuture(action['Completed date'])) return 'Record a valid completion date';
+      const missing = closureEvidence(action, evidence);
+      if (missing) return missing;
       return action['Closure validation'] === 'Validated' ? 'Verified' : 'Validate closure';
     }
     return hasDate(action['Target date']) ? 'Implement and verify' : 'Set target date';
@@ -35,7 +59,7 @@ window.SENTINEL_SUMMARY = (() => {
       designOpen: controls.filter(control => control['Design result'] === 'Not assessed').length,
       operatingOpen: controls.filter(control => control['Operating result'] === 'Not assessed').length,
       reviewed: evidence.filter(record => record.Status === 'Reviewed').length,
-      verified: actions.filter(verified).length,
+      verified: actions.filter(action => verified(action, evidence)).length,
       unscheduled: actions.filter(action => action['Workflow status'] !== 'Completed' && !hasDate(action['Target date'])).length,
       pendingApproval: actions.filter(action => action['Approval status'] === 'Pending approval').length,
       approved: actions.filter(action => action['Approval status'] === 'Approved').length,
@@ -46,10 +70,10 @@ window.SENTINEL_SUMMARY = (() => {
       scorecard: risks.slice(0, 10).map(risk => {
         const linked = records => records.filter(record => record['Risk ID'] === risk['Risk ID']);
         const riskControls = linked(controls), riskEvidence = linked(evidence), riskActions = linked(actions);
-        return {risk, controls: [riskControls.filter(assessed).length, riskControls.length], evidence: [riskEvidence.filter(record => record.Status === 'Reviewed').length, riskEvidence.length], actions: [riskActions.filter(verified).length, riskActions.length]};
+        return {risk, controls: [riskControls.filter(assessed).length, riskControls.length], evidence: [riskEvidence.filter(record => record.Status === 'Reviewed').length, riskEvidence.length], actions: [riskActions.filter(action => verified(action, evidence)).length, riskActions.length]};
       }),
-      priorities: actions.map((action, index) => ({action, index, risk: risks.find(risk => risk['Risk ID'] === action['Risk ID']), next: prerequisite(action)}))
-        .filter(record => !verified(record.action))
+      priorities: actions.map((action, index) => ({action, index, risk: risks.find(risk => risk['Risk ID'] === action['Risk ID']), next: prerequisite(action, evidence)}))
+        .filter(record => !verified(record.action, evidence))
         .sort((left, right) => (right.risk?.['Inherent score'] ?? 0) - (left.risk?.['Inherent score'] ?? 0) || Number(right.action['Days overdue'] > 0) - Number(left.action['Days overdue'] > 0) || left.index - right.index)
         .slice(0, 10)
     };
@@ -70,7 +94,7 @@ function dashboardSummary() {
     <section class="panel"><div class="panel-heading"><h2>Executive insights</h2></div><div class="panel-body prose">
       <p>${summary.riskCount} risks recorded; ${summary.pending} await validation. ${summary.designOpen} controls have no design assessment; ${summary.operatingOpen} have no operating assessment.</p>
       <p>${summary.evidencePipeline[0].count} evidence requests remain planned; ${summary.reviewed} are reviewed. ${summary.pendingApproval} actions await approval; ${summary.unscheduled} open actions have no target date.</p>
-      <div class="callout">${summary.allRisksValidated ? 'Risk records are marked validated. Confirm supporting assessments and reviewer approvals before sign-off.' : 'Sign-off pending. Evidence, assessment and approval prerequisites remain open.'} A completed action counts as verified only with approval, a completion date, closure evidence IDs and validated closure. This reflects entered records, not an independent validation by this website.</div>
+      <div class="callout">${summary.allRisksValidated ? 'Risk records are marked validated. Confirm supporting assessments and reviewer approvals before sign-off.' : 'Sign-off pending. Evidence, assessment and approval prerequisites remain open.'} A completed action counts as verified only with approval, a valid nonfuture completion date, validated closure and one unique same-risk evidence record: reviewed and validated, with a valid nonfuture received date, location and reviewer. This reflects entered records, not an independent validation by this website.</div>
       <p class="traceability-note">${summary.missingEvidence ? `Traceability alert: ${summary.missingEvidence} risk records lack evidence IDs.` : 'Every risk record has an evidence ID reference; review the supporting evidence before relying on it.'} Approval must precede scheduling and implementation.</p>
     </div></section>
     <section class="panel"><div class="panel-heading"><div><h2>Risk scorecard</h2><p>First 10 registered risks · all records · assessed and reviewed do not mean effective or validated</p></div></div><div class="table-wrap" tabindex="0" role="region" aria-label="Risk scorecard records"><table class="summary-table"><thead><tr><th scope="col">Risk</th><th scope="col">Inherent</th><th scope="col">Validation</th><th scope="col">Controls assessed</th><th scope="col">Evidence reviewed</th><th scope="col">Actions verified</th></tr></thead><tbody>${summary.scorecard.length ? summary.scorecard.map(record => `<tr><td><span class="record-id">${escape(record.risk['Risk ID'])}</span><br>${escape(record.risk['Risk title'])}</td><td>${record.risk['Inherent score'] ?? 'Unassessed'} ${badge(record.risk['Inherent rating'])}</td><td>${badge(record.risk['Validation status'])}</td><td>${fraction(record.controls)}</td><td>${fraction(record.evidence)}</td><td>${fraction(record.actions)}</td></tr>`).join('') : '<tr><td colspan="6">No risks registered.</td></tr>'}</tbody></table></div></section>
@@ -79,3 +103,4 @@ function dashboardSummary() {
     <p class="context-note">Training scenario · provisional risk ratings are not organization-wide maturity scores. No maturity percentage is inferred.</p>
   </section>`;
 }
+

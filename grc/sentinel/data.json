@@ -4,12 +4,14 @@
     "project": "GRC Project 01",
     "source": "Latest user-supplied workbook",
     "sourceFile": "Sentinel_Defense_GRC_Project_01.xlsx",
-    "sha256": "4ea1f04e46c8d3b6489688013e582b9f703b9a5ca576a9549eece8696e2376be",
-    "imported": "2026-10-15",
+    "sha256": "35261645b9af3d4f753ba3d5423c869a659e073f6581ea3d69f7d6ca30368c5f",
+    "imported": "2026-10-16",
     "scenario": "Fictional training scenarios; no validated findings inferred.",
-    "scoringRevision": "user-workbook-4ea1f04e46c8",
+    "scoringRevision": "user-workbook-35261645b9af",
     "scoringDecision": "Scoring decision | October 14, 2026: Restored user-defined bands: Low 1–5, Moderate 6–11, High 12–19, Critical 20–25. Supersedes High 10–16 / Critical 17–25. Moderate covers 6–11 so the scale has no gaps. R-001: 3 × 4 = 12 High remains simulated and pending validation.",
-    "incompleteRows": []
+    "incompleteRows": [],
+    "completion": "Fictional portfolio deliverables completed; evidence collection, control testing and remediation remain pending.",
+    "closureEvidenceMapping": "Workbook Closure evidence ID maps to browser Closure evidence IDs; one primary evidence record per action."
   },
   "tables": {
     "Risk Register": {
@@ -48,11 +50,11 @@
           "Impact": 4,
           "Inherent score": 12,
           "Inherent rating": "High",
-          "Proposed owner": "Security owner — proposed",
+          "Proposed owner": "Security owner - proposed",
           "Treatment": "Mitigate",
           "Validation status": "Pending validation",
           "Workflow status": "Proposed",
-          "Evidence IDs": null,
+          "Evidence IDs": "E-001",
           "Residual likelihood": null,
           "Residual impact": null,
           "Residual score": null,
@@ -65,17 +67,17 @@
           "Risk title": "Excessive Access Permissions",
           "Scenario fact / source": "Sentinel Defense Solutions' fictional case scenario identifies concerns that some employees may have access to files beyond their assigned job responsibilities. Source: Project 01 fictional case study.",
           "Unverified assumptions": "The number of affected employees, specific file repositories, actual permission assignments, sensitivity of accessible records, effectiveness of existing access controls, and frequency of access reviews have not been verified.",
-          "Scope / asset": "Customer records, employee PII, contract documentation",
+          "Scope / asset": "Proposed scope: file repositories containing customer records, employee PII, and contract documentation. Actual repositories, affected users, permission assignments, and data sensitivity require confirmation.",
           "Category": "Identity and access",
           "Likelihood": 3,
           "Impact": 4,
           "Inherent score": 12,
           "Inherent rating": "High",
-          "Proposed owner": "IT Security Manager — proposed",
+          "Proposed owner": "IT Security Manager - proposed",
           "Treatment": "Mitigate",
           "Validation status": "Pending validation",
           "Workflow status": "Proposed",
-          "Evidence IDs": null,
+          "Evidence IDs": "E-002",
           "Residual likelihood": null,
           "Residual impact": null,
           "Residual score": null,
@@ -94,16 +96,39 @@
           "Impact": 4,
           "Inherent score": 12,
           "Inherent rating": "High",
-          "Proposed owner": "IT Security Manager — Proposed",
+          "Proposed owner": "IT Security Manager - Proposed",
           "Treatment": "Mitigate",
           "Validation status": "Pending validation",
           "Workflow status": "Proposed",
-          "Evidence IDs": null,
+          "Evidence IDs": "E-003",
           "Residual likelihood": null,
           "Residual impact": null,
           "Residual score": null,
           "Residual rating": null,
-          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Shared administrator accounts used by an external IT support vendor may reduce individual accountability and complicate access revocation. Unauthorized use or compromise of privileged credentials could result in system changes, disclosure of accessible information, or operational disruption. Recommend confirming account scope and authorized users, replacing shared access with individually attributable privileged identities where feasible, enforcing appropriate MFA and least privilege, and reviewing privileged activity monitoring. Validate using privileged-account inventories, vendor access approvals, account permissions, MFA configurations, and dated administrative activity records. No unauthorized activity or incident has been established. ",
+          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. Shared administrator accounts used by an external IT support vendor may reduce individual accountability and complicate access revocation. Unauthorized use or compromise of privileged credentials could result in system changes, disclosure of accessible information, or operational disruption. Recommend confirming account scope and authorized users, replacing shared access with individually attributable privileged identities where feasible, enforcing appropriate MFA and least privilege, and reviewing privileged activity monitoring. Validate using privileged-account inventories, vendor access approvals, account permissions, MFA configurations, and dated administrative activity records. No unauthorized activity or incident has been established.",
+          "Dashboard included": 1
+        },
+        {
+          "Risk ID": "R-004",
+          "Risk title": "Missing Formal Cybersecurity Risk Register",
+          "Scenario fact / source": "Sentinel Defense Solutions' fictional case study states that the organization does not have a documented cybersecurity risk register. Source: Project 01 fictional case study. The existence and effectiveness of other risk management activities have not been established. ",
+          "Unverified assumptions": "Existing risk identification practices, departmental risk records, risk ownership assignments, assessment methodology, review frequency, escalation procedures, management reporting, treatment approvals, and risk acceptance authority have not been verified. The duration of the documented-register gap and any resulting incidents or losses are unknown. ",
+          "Scope / asset": "Enterprise cybersecurity risk identification, assessment, ownership, prioritization, treatment tracking, escalation, and leadership reporting across Sentinel operations and relevant third-party relationships. Actual process coverage and existing safeguards require confirmation. ",
+          "Category": "Governance",
+          "Likelihood": 3,
+          "Impact": 4,
+          "Inherent score": 12,
+          "Inherent rating": "High",
+          "Proposed owner": "IT Security Manager - Proposed",
+          "Treatment": "Mitigate",
+          "Validation status": "Pending validation",
+          "Workflow status": "Proposed",
+          "Evidence IDs": "E-004",
+          "Residual likelihood": null,
+          "Residual impact": null,
+          "Residual score": null,
+          "Residual rating": null,
+          "Assessment notes": "Provisional assessment: Likelihood 3/5 (Possible) and Impact 4/5 (Major), resulting in a High risk score of 12/25. The absence of a documented cybersecurity risk register may limit consistent identification, prioritization, ownership, escalation, and monitoring of cybersecurity risks. A material risk could consequently be overlooked or addressed late, potentially contributing to operational disruption, financial loss, or contractual consequences. Recommend establishing a formal enterprise cybersecurity risk register supported by documented assessment criteria, assigned risk owners, treatment decisions, periodic reviews, escalation thresholds, and management reporting. Validate through existing policies, risk records, leadership meeting records, assigned responsibilities, and evidence of risk review and escalation practices. Other governance processes, actual consequences, and control effectiveness remain unverified.",
           "Dashboard included": 1
         }
       ]
@@ -128,8 +153,8 @@
           "Control ID": "C-001",
           "Risk ID": "R-001",
           "Proposed control objective": "Enforce MFA on all applicable employee and privileged accounts, with documented exceptions and approved compensating safeguards where necessary.",
-          "Design test plan": "Keep the MFA policy/configuration review, but include enforcement scope, privileged accounts, exceptions, and approved compensating controls.",
-          "Operating test plan": "Keep the authentication sampling approach; add checks for new accounts, privileged accounts, exception handling, and dated evidence across the assessment period.",
+          "Design test plan": "Review the MFA policy, identity-provider configurations, enforcement scope, privileged-account requirements, exception register, and approved compensating safeguards. Determine whether the proposed design requires MFA for all applicable accounts and defines appropriate exception approval and review procedures.",
+          "Operating test plan": "After confirming the assessment period and account population, select and document a sample covering employee, privileged, newly created, and exception accounts where applicable. Inspect dated authentication records and account-level configurations to verify MFA enforcement throughout the period. Check that exceptions were authorized and compensating safeguards operated as approved. Record results and exceptions against predefined criteria.",
           "Design result": "Not assessed",
           "Operating result": "Not assessed",
           "Evidence IDs": "E-001",
@@ -165,6 +190,20 @@
           "Assessment date": null,
           "Validation status": "Pending validation",
           "Facts / assumptions / notes": "Proposed privileged-access control and test procedures. The fictional scenario establishes use of shared vendor administrator accounts, but actual account privileges, authorized users, MFA enforcement, and monitoring practices remain unverified. No design or operating effectiveness testing has been performed."
+        },
+        {
+          "Control ID": "C-004",
+          "Risk ID": "R-004",
+          "Proposed control objective": "Establish and maintain a documented enterprise cybersecurity risk management process and centralized risk register that records identified risks, likelihood and impact assessments, assigned risk owners, treatment decisions, approval status, review dates, escalation criteria, and management reporting. ",
+          "Design test plan": "Review the documented cybersecurity risk management policy, risk assessment methodology, risk register template, ownership requirements, risk acceptance authority, review schedule, escalation criteria, and management reporting procedures. Determine whether the proposed process is adequately designed to identify, assess, assign, prioritize, treat, monitor, and report cybersecurity risks. ",
+          "Operating test plan": "After establishing the assessment period and risk population, select a documented sample of cybersecurity risks. Verify that each sampled risk has an assessment, assigned owner, documented treatment decision, appropriate approvals, and evidence of periodic review or escalation where required. Compare sampled records against management reports and supporting documentation; record exceptions against predefined criteria. ",
+          "Design result": "Not assessed",
+          "Operating result": "Not assessed",
+          "Evidence IDs": "E-004",
+          "Assessor": null,
+          "Assessment date": null,
+          "Validation status": "Pending validation",
+          "Facts / assumptions / notes": "Proposed enterprise cybersecurity risk management control and test procedures. The fictional scenario confirms that Sentinel lacks a documented cybersecurity risk register, but existing alternative risk management activities have not been assessed. No control design or operating effectiveness testing has been performed. Control ownership, approval, and implementation remain unverified."
         }
       ]
     },
@@ -223,7 +262,7 @@
           "Risk ID": "R-003",
           "Control ID": "C-003",
           "Requested evidence": "Privileged-account inventory; vendor administrator personnel roster; account-to-user mappings; role and permission exports; vendor access approval records; MFA enforcement configurations and dated sign-in records; privileged session/activity logs; and documented shared-account exceptions or compensating safeguards, if applicable. ",
-          "Purpose / proposed coverage": "Privileged-account inventory; vendor administrator personnel roster; account-to-user mappings; role and permission exports; vendor access approval records; MFA enforcement configurations and dated sign-in records; privileged session/activity logs; and documented shared-account exceptions or compensating safeguards, if applicable.",
+          "Purpose / proposed coverage": "Determine whether vendor administrator access is individually attributable, authorized, restricted by least privilege, protected by MFA, and appropriately monitored. Confirm affected systems, account population, and assessment period before testing. Evaluate approved exceptions and compensating safeguards where shared accounts remain necessary.",
           "Custodian": "Sentinel IT / IAM Administrator and external IT vendor administrator - proposed, pending confirmation.",
           "Request date": null,
           "Due date": null,
@@ -233,6 +272,22 @@
           "Reviewer": null,
           "Validation status": "Pending validation",
           "Review notes": "Planned evidence request only. No evidence has been requested, received, or reviewed. Before testing, confirm source-system coverage, record dates, completeness, and reliability; reconcile vendor records with Sentinel account inventories and approvals; investigate missing or inconsistent records. No control effectiveness conclusion has been reached."
+        },
+        {
+          "Evidence ID": "E-004",
+          "Risk ID": "R-004",
+          "Control ID": "C-004",
+          "Requested evidence": "Cybersecurity risk management policies and procedures; existing departmental risk lists or risk records; risk assessment methodology and scoring criteria; risk ownership assignments; treatment and risk acceptance approval records; risk review schedules and meeting minutes; escalation procedures; management risk reports; and relevant third-party risk management records, if available. ",
+          "Purpose / proposed coverage": "Determine whether Sentinel has documented or alternative practices for identifying, assessing, assigning, treating, escalating, monitoring, and reporting cybersecurity risks. Establish the relevant process population and assessment period, evaluate the completeness and reliability of available records, and identify governance gaps requiring remediation.",
+          "Custodian": "Sentinel IT Security Manager and relevant business or risk management representatives - proposed, pending confirmation.",
+          "Request date": null,
+          "Due date": null,
+          "Received date": null,
+          "Status": "Planned request",
+          "Evidence location": null,
+          "Reviewer": null,
+          "Validation status": "Pending validation",
+          "Review notes": "Planned evidence request only. No evidence has been requested, received, or reviewed. The fictional scenario confirms the absence of a documented cybersecurity risk register, but other risk management practices remain unverified. Confirm record ownership, completeness, dates, approvals, and source reliability before testing. No design or operating effectiveness conclusion has been reached. "
         }
       ]
     },
@@ -278,7 +333,7 @@
           "Closure evidence IDs": null,
           "Closure validation": "Pending validation",
           "Days overdue": null,
-          "Notes / dependencies": "Confirm affected repositories and roles; obtain data-owner approval for access changes; document authorized exceptions; establish review frequency and closure criteria. No remediation has been performed or verified."
+          "Notes / dependencies": "Confirm affected repositories and roles; obtain data owner approval for access changes; document authorized exceptions, establish review frequency and closure criteria. No remediation has been performed or verified."
         },
         {
           "Action ID": "A-003",
@@ -292,7 +347,21 @@
           "Closure evidence IDs": null,
           "Closure validation": "Pending validation",
           "Days overdue": null,
-          "Notes / dependencies": "Confirm affected systems, vendor administrator roster, technical compatibility, and operational support requirements. Obtain risk-owner and applicable system-owner approvals before implementation. Coordinate changes with the external IT vendor to prevent service disruption. Define approved exceptions and compensating safeguards where individual accounts are not technically feasible. Closure requires verified account configurations, shared-account disposition, access approvals, MFA enforcement, and attributable privileged activity records. No remediation has been approved, performed, or validated."
+          "Notes / dependencies": "Confirm affected systems, vendor administrator roster, technical compatibility, and operational support requirements. Obtain risk owner and applicable system-owner approvals before implementation. Coordinate changes with the external IT vendor to prevent service disruption. Define approved exceptions and compensating safeguards where individual accounts are not technically feasible. Closure requires verified account configurations, shared-account disposition, access approvals, MFA enforcement, and attributable privileged activity records. No remediation has been approved, performed, or validated."
+        },
+        {
+          "Action ID": "A-004",
+          "Risk ID": "R-004",
+          "Proposed action": "Develop and obtain approval for an enterprise cybersecurity risk management policy and centralized risk register. Define standardized risk identification and scoring criteria, assigned risk owners, treatment and acceptance approval authorities, periodic review requirements, escalation thresholds, and leadership reporting procedures. Identify and document the initial risk population, train responsible personnel, and establish recurring governance reviews. Validate implementation and operation before recommending remediation closure. ",
+          "Proposed owner": "IT Security Manager - Proposed",
+          "Approval status": "Pending approval",
+          "Workflow status": "Proposed",
+          "Target date": null,
+          "Completed date": null,
+          "Closure evidence IDs": null,
+          "Closure validation": "Pending validation",
+          "Days overdue": null,
+          "Notes / dependencies": "Requires leadership sponsorship, confirmation of existing risk management practices, agreement on risk ownership and acceptance authority, coordination with relevant business units and third-party stakeholders, approval of assessment criteria, and allocation of resources for implementation and ongoing reviews. Closure should be supported by an approved policy, operational risk register, documented ownership and treatment decisions, evidence of training or communication, and records demonstrating completed risk reviews and appropriate escalation. All activities remain proposed, no approval, implementation, or closure validation has occurred."
         }
       ]
     }
