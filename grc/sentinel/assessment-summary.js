@@ -52,7 +52,36 @@ window.SENTINEL_SUMMARY = (() => {
     const actions = tables['Remediation Tracker'].rows;
     const evidenceStages = ['Planned request', 'Requested', 'Received', 'Under review', 'Reviewed'];
     const actionStages = ['Proposed', 'Open', 'In progress', 'Blocked', 'Completed'];
+    const ownerGroups = new Map();
+    risks.forEach(risk => {
+      const label = String(risk['Proposed owner'] || 'Unassigned').trim() || 'Unassigned';
+      const key = label.toLowerCase();
+      const group = ownerGroups.get(key) || {owner: label, count: 0, high: 0, pending: 0};
+      group.count += 1;
+      group.high += Number(['High', 'Critical'].includes(risk['Inherent rating']));
+      group.pending += Number(risk['Validation status'] !== 'Validated');
+      ownerGroups.set(key, group);
+    });
+    const key = value => String(value ?? '').trim().toLowerCase();
+    const riskKeys = new Set(risks.map(risk => key(risk['Risk ID'])).filter(Boolean));
+    const controlKeys = new Set(controls.map(control => key(control['Control ID'])).filter(Boolean));
+    const riskFrequency = new Map();
+    risks.forEach(risk => {const id = key(risk['Risk ID']); if (id) riskFrequency.set(id, (riskFrequency.get(id) || 0) + 1);});
+    const quality = [
+      ['Risks missing owner', risks.filter(risk => !present(risk['Proposed owner'])).length],
+      ['Risks missing validation', risks.filter(risk => !present(risk['Validation status'])).length],
+      ['Evidence without due date', evidence.filter(record => !present(record['Due date'])).length],
+      ['Actions without target date', actions.filter(action => !present(action['Target date'])).length],
+      ['Invalid evidence due dates', evidence.filter(record => present(record['Due date']) && !hasDate(record['Due date'])).length],
+      ['Invalid action target dates', actions.filter(action => present(action['Target date']) && !hasDate(action['Target date'])).length],
+      ['Duplicate risk ID rows', risks.filter(risk => riskFrequency.get(key(risk['Risk ID'])) > 1).length],
+      ['Controls with unknown risk ID', controls.filter(control => !riskKeys.has(key(control['Risk ID']))).length],
+      ['Evidence with unknown control ID', evidence.filter(record => !controlKeys.has(key(record['Control ID']))).length],
+      ['Actions with unknown risk ID', actions.filter(action => !riskKeys.has(key(action['Risk ID']))).length]
+    ];
     return {
+      owners: [...ownerGroups.values()].sort((left, right) => right.high - left.high || right.count - left.count || left.owner.localeCompare(right.owner)),
+      quality,
       riskCount: risks.length,
       pending: risks.filter(risk => risk['Validation status'] === 'Pending validation').length,
       assessed: controls.filter(assessed).length,
@@ -100,7 +129,8 @@ function dashboardSummary() {
     <section class="panel"><div class="panel-heading"><div><h2>Risk scorecard</h2><p>First 10 registered risks · all records · assessed and reviewed do not mean effective or validated</p></div></div><div class="table-wrap" tabindex="0" role="region" aria-label="Risk scorecard records"><table class="summary-table"><thead><tr><th scope="col">Risk</th><th scope="col">Inherent</th><th scope="col">Validation</th><th scope="col">Controls assessed</th><th scope="col">Evidence reviewed</th><th scope="col">Actions verified</th></tr></thead><tbody>${summary.scorecard.length ? summary.scorecard.map(record => `<tr><td><span class="record-id">${escape(record.risk['Risk ID'])}</span><br>${escape(record.risk['Risk title'])}</td><td>${record.risk['Inherent score'] ?? 'Unassessed'} ${badge(record.risk['Inherent rating'])}</td><td>${badge(record.risk['Validation status'])}</td><td>${fraction(record.controls)}</td><td>${fraction(record.evidence)}</td><td>${fraction(record.actions)}</td></tr>`).join('') : '<tr><td colspan="6">No risks registered.</td></tr>'}</tbody></table></div></section>
     <div class="dashboard-grid"><section class="panel"><div class="panel-heading"><h2>Evidence pipeline</h2></div><div class="panel-body">${progress(summary.evidencePipeline)}<p class="context-note">Stages reflect request workflow. Reviewed evidence still requires a supported validation conclusion.</p></div></section><section class="panel"><div class="panel-heading"><h2>Remediation progress</h2></div><div class="panel-body">${progress(summary.remediationProgress)}<p class="context-note">Approved actions: ${summary.approved} / ${rows('remediation').length}. Completed means implementation recorded; verified closure requires every prerequisite.</p></div></section></div>
     <section class="panel"><div class="panel-heading"><div><h2>Priority actions</h2><p>Top 10 unverified actions · inherent score, then overdue status; source order breaks ties</p></div></div><div class="table-wrap" tabindex="0" role="region" aria-label="Priority action records"><table class="summary-table"><thead><tr><th scope="col">Action / risk</th><th scope="col">Proposed owner</th><th scope="col">Risk score</th><th scope="col">Approval</th><th scope="col">Workflow</th><th scope="col">Target date</th><th scope="col">Next prerequisite</th></tr></thead><tbody>${summary.priorities.length ? summary.priorities.map(record => `<tr><td><span class="record-id">${escape(record.action['Action ID'])}</span> / ${escape(record.action['Risk ID'])}</td><td>${escape(record.action['Proposed owner'] || 'Not assigned')}</td><td>${record.risk?.['Inherent score'] ?? 'Not scored'}</td><td>${badge(record.action['Approval status'])}</td><td>${badge(record.action['Workflow status'])}</td><td>${escape(dateValue(record.action['Target date']) || 'Not scheduled')}</td><td>${escape(record.next)}</td></tr>`).join('') : '<tr><td colspan="7">No unverified actions recorded.</td></tr>'}</tbody></table></div></section>
+    <section class="panel" aria-labelledby="ownership-heading"><div class="panel-heading"><div><h2 id="ownership-heading">Risk ownership</h2><p>All registered risks · proposed assignments · case variations combined</p></div></div><div class="table-wrap" tabindex="0" role="region" aria-label="Risk ownership records"><table class="summary-table"><thead><tr><th scope="col">Proposed owner</th><th scope="col">Risks</th><th scope="col">High / Critical</th><th scope="col">Not validated</th></tr></thead><tbody>${summary.owners.length ? summary.owners.map(group => `<tr><td>${escape(group.owner)}</td><td>${group.count}</td><td>${group.high}</td><td>${group.pending}</td></tr>`).join('') : '<tr><td colspan="4">No risks registered.</td></tr>'}</tbody></table></div></section>
+    <section class="panel" aria-labelledby="quality-heading"><div class="panel-heading"><div><h2 id="quality-heading">Data quality and scheduling</h2><p>All records · missing dates are unscheduled, not overdue · counts identify records needing review</p></div></div><div class="table-wrap" tabindex="0" role="region" aria-label="Data quality checks"><table class="summary-table"><thead><tr><th scope="col">Check</th><th scope="col">Affected records</th><th scope="col">Review</th></tr></thead><tbody>${summary.quality.map(([label, count]) => `<tr><td>${escape(label)}</td><td>${count}</td><td>${count ? 'Review records' : 'No issue detected'}</td></tr>`).join('')}</tbody></table></div><div class="panel-body"><p class="context-note">These checks inspect recorded fields and links. They do not confirm evidence reliability, approved ownership or control effectiveness. Duplicate counts represent affected rows.</p><a class="text-link" href="index.html#executive-reporting">Explore the enhanced Excel dashboard and reporting notes ↗</a></div></section>
     <p class="context-note">Training scenario · provisional risk ratings are not organization-wide maturity scores. No maturity percentage is inferred.</p>
   </section>`;
 }
-
