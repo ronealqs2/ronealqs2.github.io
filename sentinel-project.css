@@ -62,3 +62,6 @@
 }
 @media (max-width: 380px) { .sentinel-flow { grid-template-columns: 1fr; } }
 @media print { .sentinel-hero { display: block; } .scenario-card, .sentinel-box, .sentinel-boundary { background: white; color: #142b39; box-shadow: none; break-inside: avoid; } .sentinel-actions { display: none; } }
+#executive-reporting figure { margin: 1.5rem 0; }
+#executive-reporting figure img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 10px; }
+#executive-reporting figcaption { margin-top: .75rem; font-size: .9rem; line-height: 1.6; }
