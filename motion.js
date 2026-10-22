@@ -108,7 +108,7 @@
   if (!('IntersectionObserver' in window) || !Element.prototype.animate || preference.matches) return;
 
   const animations = new Set();
-  const targets = Array.from(document.querySelectorAll('.professional-card, .synthetic-demo, .bio-copy, .portrait-frame, .bio-block, .hero > div, .hero-panel, .recruiter-portrait, .section-heading, .section > h1, .section > h2, .quick-links > a, .project-card, .sample-grid > div, .credential-panel, .learning-panel, .about-panel, .case-study, .project-page > h1, .project-boundary, .resume-role, .resume-project, .resume-capabilities > article, .resume-education > article'));
+  const targets = Array.from(document.querySelectorAll('.credential-card, .course-card, #training > h1, .portfolio-destination > h1, .professional-card, .synthetic-demo, .bio-copy, .portrait-frame, .bio-block, .hero > div, .hero-panel, .recruiter-portrait, .section-heading, .section > h1, .section > h2, .quick-links > a, .project-card, .sample-grid > div, .credential-panel, .learning-panel, .about-panel, .case-study, .project-page > h1, .project-boundary, .resume-role, .resume-project, .resume-capabilities > article, .resume-education > article'));
   const observer = new IntersectionObserver(entries => {
     let stagger = 0;
     for (const entry of entries) {
@@ -117,13 +117,13 @@
       if (preference.matches || document.visibilityState === 'hidden') continue;
       const animation = entry.target.animate(
         [{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'translateY(0)' }],
-        { duration: 520, delay: stagger * 55, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
+        { duration: 680, delay: stagger * 70, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
       );
       stagger = (stagger + 1) % 3;
       animations.add(animation);
       animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
     }
-  }, { threshold: 0.08 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   for (const target of targets) observer.observe(target);
   preference.addEventListener('change', event => {
@@ -140,4 +140,3 @@
 })();
 
 import('./disclosures.js?v=20261016-smooth-tiles').catch(error => console.warn('Dropdown enhancement unavailable:', error));
-
