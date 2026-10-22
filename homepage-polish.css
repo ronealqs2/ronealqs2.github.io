@@ -116,19 +116,24 @@
 
 .homepage-polish #home .recruiter-portrait {
   align-self: center;
+  overflow: hidden;
+  border: 1px solid #294354;
+  border-radius: 14px;
+  background: #0c1b2b;
 }
 
 .homepage-polish #home .recruiter-portrait > img {
   display: block;
-  border-radius: 14px 14px 0 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
 }
 
 .homepage-polish #home .hero-foundation {
   padding: 22px;
-  border: 1px solid #294354;
-  border-top: 0;
-  border-radius: 0 0 14px 14px;
-  background: #0c1b2bea;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .homepage-polish #home .hero-foundation p {
