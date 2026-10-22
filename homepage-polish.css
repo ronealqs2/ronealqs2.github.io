@@ -227,6 +227,40 @@
   font-weight: 700;
 }
 
+.homepage-polish .credential-nameplate {
+  width: 160px;
+  background: #fff;
+}
+
+.homepage-polish .credential-nameplate.provider-infosec {
+  background: #163c46;
+}
+
+.homepage-polish .credential-nameplate img {
+  display: block;
+  width: 120px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.homepage-polish .course-logo {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 62px;
+  margin: 0 auto 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.homepage-polish .course-logo img {
+  display: block;
+  max-width: 100%;
+  height: 34px;
+  object-fit: contain;
+}
+
 .homepage-polish .credential-type {
   display: block;
   color: #8fdfcd;
