@@ -2,11 +2,18 @@
   column-gap: clamp(36px, 5vw, 72px);
   padding-top: 88px;
   padding-bottom: 84px;
+  border-bottom: 0;
 }
 
 .homepage-polish #home::before {
   background: linear-gradient(105deg, #091421 0%, #091421f5 38%, #091421c2 64%, #09142133 100%);
   animation: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 180px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 180px), transparent 100%);
+}
+
+.homepage-polish #projects {
+  border-top: 0;
 }
 
 .homepage-polish #home .hero-copy {
