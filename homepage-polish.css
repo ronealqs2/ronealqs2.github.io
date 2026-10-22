@@ -1,0 +1,200 @@
+.homepage-polish #home {
+  column-gap: clamp(36px, 5vw, 72px);
+  padding-top: 88px;
+  padding-bottom: 84px;
+}
+
+.homepage-polish #home::before {
+  background: linear-gradient(105deg, #091421 0%, #091421f5 38%, #091421c2 64%, #09142133 100%);
+  animation: none;
+}
+
+.homepage-polish #home .hero-copy {
+  align-self: center;
+}
+
+.homepage-polish #home .eyebrow {
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+.homepage-polish #home h1 {
+  margin-bottom: 28px;
+}
+
+.homepage-polish #home .hero-description {
+  max-width: 51ch;
+  margin: 0;
+  line-height: 1.8;
+  color: #c1cedd;
+  text-wrap: pretty;
+}
+
+.homepage-polish #home .hero-actions {
+  margin-top: 34px;
+  margin-bottom: 30px;
+}
+
+.homepage-polish #home .hero-role-panel {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid #29475a;
+  border-left: 3px solid #78ddca;
+  background: #102333cc;
+  border-radius: 8px;
+}
+
+.homepage-polish #home .hero-role-panel h2,
+.homepage-polish #home .hero-foundation h2 {
+  margin: 0 0 14px;
+  color: #8ce5d4;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.homepage-polish #home .hero-role-tags,
+.homepage-polish #home .hero-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.homepage-polish #home .hero-role-tags li {
+  padding: 9px 12px;
+  border: 1px solid #365266;
+  border-radius: 4px;
+  background: #0b1929;
+  color: #edf5fa;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.homepage-polish #home .hero-skill-tags {
+  margin-top: 16px;
+}
+
+.homepage-polish #home .hero-skill-tags li {
+  padding: 8px 11px;
+  border: 1px solid #2d4658;
+  border-radius: 4px;
+  background: #10213199;
+  color: #c3d4e0;
+  font-size: 12px;
+}
+
+.homepage-polish #home .hero-frameworks {
+  margin-top: 20px;
+}
+
+.homepage-polish #home .hero-frameworks p {
+  margin: 0 0 9px;
+  color: #a7bdcd;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.homepage-polish #home .hero-frameworks ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.homepage-polish #home .hero-frameworks li {
+  padding: 4px 8px;
+  border: 1px solid #294354;
+  border-radius: 4px;
+  color: #b6cbd8;
+  font-size: 11px;
+}
+
+.homepage-polish #home .recruiter-portrait {
+  align-self: center;
+}
+
+.homepage-polish #home .recruiter-portrait > img {
+  display: block;
+  border-radius: 14px 14px 0 0;
+}
+
+.homepage-polish #home .hero-foundation {
+  padding: 22px;
+  border: 1px solid #294354;
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
+  background: #0c1b2bea;
+}
+
+.homepage-polish #home .hero-foundation p {
+  margin: 0 0 14px;
+  color: #becedb;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.homepage-polish #home .hero-foundation .text-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.homepage-polish #home .hero-focus {
+  max-width: 54ch;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.homepage-polish #home .hero-background {
+  margin: 0;
+  color: #9fb4c5;
+  font-size: 13px;
+  letter-spacing: .025em;
+}
+
+.homepage-polish #home .hero-background span {
+  padding: 0 8px;
+}
+
+@media (max-width: 700px) {
+  .homepage-polish #home {
+    padding-top: 42px;
+    padding-bottom: 44px;
+    gap: 32px;
+  }
+
+  .homepage-polish #home::before {
+    background: linear-gradient(160deg, #091421f5 0%, #091421e6 48%, #09142166 100%);
+  }
+
+  .homepage-polish #home .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .homepage-polish #home h1 {
+    margin-bottom: 22px;
+  }
+
+  .homepage-polish #home .hero-actions {
+    margin-top: 26px;
+    margin-bottom: 26px;
+  }
+}
+
+@media print {
+  .homepage-polish #home::before {
+    display: none;
+  }
+
+  .homepage-polish #home .hero-description,
+  .homepage-polish #home .hero-background {
+    color: inherit;
+  }
+}
