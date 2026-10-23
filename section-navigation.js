@@ -59,7 +59,7 @@
   if (document.fonts) document.fonts.ready.then(measureSections);
   measureSections();
   let scrollAnimation = 0;
-  let backgroundRotation = 0;
+  let activeDestination = null;
   const resumeTabs = document.querySelector('.resume-jumps');
   const trainingSection = document.getElementById('training');
   let tabVisibilityFrame = 0;
@@ -76,44 +76,64 @@
   }, {passive: true});
   window.addEventListener('resize', updateResumeTabs);
   updateResumeTabs();
-  function scrollToSection(destination) {
+  function finishScroll(moveFocus) {
     if (scrollAnimation) window.cancelAnimationFrame(scrollAnimation);
-    const initialPosition = window.scrollY;
-    const offset = header.getBoundingClientRect().height + 8;
-    const targetPosition = Math.max(0, Math.min(initialPosition + destination.getBoundingClientRect().top - offset, document.documentElement.scrollHeight - window.innerHeight));
-    function finish() {
-      scrollAnimation = 0;
+    scrollAnimation = 0;
+    document.documentElement.classList.remove('is-section-scrolling');
+    delete document.documentElement.dataset.scrollDestination;
+    const destination = activeDestination;
+    activeDestination = null;
+    if (moveFocus && destination) {
       destination.setAttribute('tabindex', '-1');
       destination.focus({preventScroll: true});
     }
-    if (preference.matches) {
-      window.scrollTo({top: targetPosition, behavior: 'instant'});
-      finish();
-      return;
-    }
-    const started = performance.now();
-    const duration = Math.min(1100, 650 + Math.abs(targetPosition - initialPosition) * .06);
-    const background = document.querySelector('.network-orbit');
-    const initialRotation = backgroundRotation;
-    function step(timestamp) {
-      const progress = Math.min(1, (timestamp - started) / duration);
-      const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
-      window.scrollTo({top: initialPosition + (targetPosition - initialPosition) * eased, behavior: 'instant'});
-      if (background) {
-        backgroundRotation = initialRotation + 35 * eased;
-        background.style.rotate = `${backgroundRotation}deg`;
-      }
-      if (progress < 1) scrollAnimation = window.requestAnimationFrame(step);
-      else finish();
-    }
-    scrollAnimation = window.requestAnimationFrame(step);
   }
   function cancelScroll() {
-    if (scrollAnimation) window.cancelAnimationFrame(scrollAnimation);
-    scrollAnimation = 0;
+    if (!activeDestination) return;
+    window.scrollTo({top: window.scrollY, behavior: 'instant'});
+    finishScroll(false);
+  }
+  function scrollToSection(destination) {
+    cancelScroll();
+    const initialPosition = window.scrollY;
+    const offset = header.getBoundingClientRect().height + 8;
+    const targetPosition = Math.max(0, Math.min(initialPosition + destination.getBoundingClientRect().top - offset, document.documentElement.scrollHeight - window.innerHeight));
+    activeDestination = destination;
+    if (preference.matches || Math.abs(targetPosition - initialPosition) < 1) {
+      window.scrollTo({top: targetPosition, behavior: 'instant'});
+      finishScroll(true);
+      return;
+    }
+    document.documentElement.classList.add('is-section-scrolling');
+    document.documentElement.dataset.scrollDestination = destination.id;
+    const started = performance.now();
+    let lastPosition = initialPosition;
+    let stableFrames = 0;
+    function settle(timestamp) {
+      if (!activeDestination) return;
+      const position = window.scrollY;
+      stableFrames = Math.abs(position - lastPosition) < .5 ? stableFrames + 1 : 0;
+      lastPosition = position;
+      if (Math.abs(position - targetPosition) < 1 || (timestamp - started > 160 && stableFrames >= 6) || timestamp - started > 3000) {
+        finishScroll(true);
+        return;
+      }
+      scrollAnimation = window.requestAnimationFrame(settle);
+    }
+    window.scrollTo({top: targetPosition, behavior: 'smooth'});
+    scrollAnimation = window.requestAnimationFrame(settle);
   }
   window.addEventListener('wheel', cancelScroll, {passive: true});
   window.addEventListener('touchstart', cancelScroll, {passive: true});
+  window.addEventListener('keydown', event => {
+    if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', 'Escape', ' '].includes(event.key)) cancelScroll();
+  });
+  preference.addEventListener('change', event => {
+    if (!event.matches || !activeDestination) return;
+    const destination = activeDestination;
+    cancelScroll();
+    scrollToSection(destination);
+  });
   function measureHeader() {
     document.documentElement.style.setProperty('--section-header-height', `${header.getBoundingClientRect().height + 8}px`);
   }
