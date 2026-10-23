@@ -427,7 +427,7 @@
   width: min(100%, 280px);
   height: 84px;
   padding: 16px;
-  margin-bottom: 22px;
+  margin: 0 auto 22px;
   border: 1px solid #345363;
   border-radius: 12px;
   background: #0b1929;
