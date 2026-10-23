@@ -72,7 +72,7 @@
         return;
       }
       const scrollDistance = Math.max(0, window.scrollY);
-      graphic.style.transform = `rotate(${-12 + scrollDistance * .15}deg)`;
+      graphic.style.transform = `rotate(${-12 + Math.min(1, scrollDistance / scrollRange) * 36}deg)`;
     }
     function requestScrollRotation() {
       if (!rotationFrame) rotationFrame = window.requestAnimationFrame(updateScrollRotation);
@@ -115,6 +115,8 @@
       if (!entry.isIntersecting) continue;
       observer.unobserve(entry.target);
       if (preference.matches || document.visibilityState === 'hidden') continue;
+      const scrollDestination = document.documentElement.dataset.scrollDestination;
+      if (scrollDestination && !entry.target.closest(`#${CSS.escape(scrollDestination)}`)) continue;
       const animation = entry.target.animate(
         [{ opacity: 0, transform: 'translateY(20px)' }, { opacity: 1, transform: 'translateY(0)' }],
         { duration: 680, delay: stagger * 70, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'backwards' }
