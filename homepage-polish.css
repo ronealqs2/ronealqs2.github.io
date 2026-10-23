@@ -441,3 +441,47 @@
   height: auto;
   max-height: 54px;
 }
+
+.homepage-polish a.linkedin-connect {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 10px 20px 10px 12px;
+  border: 1px solid #5a9ada;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0a66c2, #07549f);
+  color: #fff;
+  box-shadow: 0 7px 22px #0004;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+.homepage-polish a.linkedin-connect:hover {
+  background: #07549f;
+  color: #fff;
+  box-shadow: 0 9px 26px #0006;
+}
+.homepage-polish .linkedin-connect-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 8px;
+  background: #fff;
+}
+.homepage-polish .linkedin-connect-icon img {
+  display: block;
+  width: 20px;
+  height: 18px;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce) {
+  .homepage-polish a.linkedin-connect { transition: none; }
+}
