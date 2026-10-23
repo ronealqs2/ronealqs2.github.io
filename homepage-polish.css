@@ -420,3 +420,24 @@
     color: inherit;
   }
 }
+
+.homepage-polish .university-logo {
+  display: grid;
+  place-items: center;
+  width: min(100%, 280px);
+  height: 84px;
+  padding: 16px;
+  margin-bottom: 22px;
+  border: 1px solid #345363;
+  border-radius: 12px;
+  background: #0b1929;
+}
+.homepage-polish .university-logo-devry {
+  background: #fff;
+}
+.homepage-polish .university-logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 54px;
+}
