@@ -1,7 +1,7 @@
 # Rolando Quinonez | GRC & Security Compliance Portfolio
 
 
-Risk documentation, controls and reporting—supported by professional operational compliance experience, academic cybersecurity labs and independent GRC training.
+Risk documentation, controls and reporting—supported by professional operational compliance experience, guided IAM/SOC home-lab practice and independent GRC training.
 
 
 **[Visit the live portfolio →](https://ronealqs2.github.io/)** · [Resume and experience](https://ronealqs2.github.io/#resume) · [LinkedIn](https://www.linkedin.com/in/rolando-quinonez-18173a399/)
@@ -11,7 +11,7 @@ Risk documentation, controls and reporting—supported by professional operation
 
 [Explore GRC, IAM and SOC projects](https://ronealqs2.github.io/projects/) · [Project documentation](projects/README.md)
 
-The collection presents the existing Sentinel GRC assessment alongside separate guided IAM/Active Directory and SOC authentication-analysis labs. IAM/SOC work is in progress; guest evidence export/review remains pending. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned. Selected academic work is prioritized on the homepage; supporting work remains expandable and searchable. Original assessment records and the workbook are unchanged.
+The collection presents the existing Sentinel GRC assessment alongside separate guided IAM/Active Directory and SOC authentication-analysis labs. IAM/SOC work is in progress; guest evidence export/review remains pending. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned. The public project showcase focuses on these three projects and professional operations reporting. Original assessment records and the workbook are unchanged.
 
 ## Start with these projects
 
@@ -19,7 +19,8 @@ The collection presents the existing Sentinel GRC assessment alongside separate 
 | Project | Evidence and capabilities | Context |
 | --- | --- | --- |
 | [Sentinel GRC Assessment](https://ronealqs2.github.io/grc/sentinel/) | Four-risk register, formula-linked Excel executive dashboard, risk ownership, control and evidence status, remediation progress and data-quality checks. [Interactive workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html). | Independent fictional training; validation pending. |
-| [Windows Security Controls Assessment](https://ronealqs2.github.io/windows-controls.html) | Permissions, encryption, hardening, backups and auditing documented across eight reports. | Academic labs. |
+| [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Account provisioning, security groups, domain login and applied-policy checks. | Guided home lab in progress; evidence export/review pending. |
+| [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html) | Windows authentication-event review and controlled incorrect-password test. | Guided local analysis in progress; domain-controller investigation open. |
 | [Unit Movement Operations Reporting & Control Suite](https://ronealqs2.github.io/operations-reporting.html) | Linked Excel reporting, exception tracking and management summaries. | Professional work; public illustrations use synthetic data. |
 
 
@@ -44,7 +45,7 @@ The portfolio distinguishes completed deliverables from evidence collection, con
 
 
 
-Public-safe static portfolio overview. Includes academic project briefs, degree-plan course coverage, earned-certificate context, a public-safe resume and the independent Sentinel GRC training project. Google curriculum is not represented as personally completed portfolio artifacts.
+Public-safe static portfolio overview. The active showcase includes guided IAM/SOC case studies, professional reporting, credential context, a public-safe resume and the independent Sentinel GRC training project. Legacy academic pages remain archived at their existing URLs but are no longer promoted in the showcase. Google curriculum is not represented as personally completed portfolio artifacts.
 
 
 
@@ -86,5 +87,6 @@ The private package needs server-enforced authentication across all files and ho
 
 
 </details>
+
 
 
