@@ -1,14 +1,14 @@
 # Cybersecurity Project Collection
 
-**GRC focus · Guided IAM and SOC home-lab projects · Portfolio project documentation**
+**GRC focus · IAM and SOC home-lab projects · Portfolio project documentation**
 
 I connect risk documentation with hands-on identity administration and authentication-log analysis. This collection presents three distinct projects together, with separate scope, results and evidence for each.
 
 | Project | Focus and keywords | Status |
 | --- | --- | --- |
 | [Sentinel GRC Assessment](grc.html) | Risk register, control mapping, evidence planning, remediation tracking, thematic charts | Fictional planning deliverables complete; assessment activities pending validation. Original assessment and workspace remain separate and unchanged. |
-| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Guided home lab in progress; configuration and session checks completed; evidence export/review pending. |
-| [SOC Authentication Analysis](soc.html) | Windows event logs, authentication analysis, failed-logon triage, controlled testing, investigation documentation | Guided local log-analysis project in progress; domain-controller investigation open. |
+| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Home lab in progress; configuration and session checks completed; evidence export/review pending. |
+| [SOC Authentication Analysis](soc.html) | Windows event logs, authentication analysis, failed-logon triage, controlled testing, investigation documentation | local log-analysis project in progress; domain-controller investigation open. |
 
 ## Shared environment
 
@@ -55,7 +55,7 @@ The [existing assessment](https://ronealqs2.github.io/grc/sentinel/) and [worksp
 
 ## Evidence and publication boundaries
 
-- Technical projects are guided personal home-lab experience, not employment, client work or production operations.
+- Technical projects are home-lab projects, not employment, client work or production operations.
 - Business data is fictional/sample data. Training systems are separate from actual business operations and security posture.
 - Public narratives use roles such as domain controller, workstation and fictional employee. Hostnames, domain/account names, original filenames and source-path mappings belong in the private evidence register.
 - Only clipboard sharing has been tested. Guest files are not assumed accessible from the host; no evidence transfer or independent content review is claimed.
@@ -71,5 +71,6 @@ The three peer projects share this collection. IAM and SOC share a lab foundatio
 [Portfolio](https://ronealqs2.github.io/) · [Project collection](index.html)
 
 **Evidence status:** IAM/SOC guest artifacts await private export and review. Public visuals summarize the owner’s checkpoint; they do not contain raw guest files.
+
 
 
