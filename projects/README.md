@@ -12,7 +12,7 @@ I connect risk documentation with hands-on identity administration and authentic
 
 ## Shared environment
 
-The collection includes interactive IAM and SOC visual summaries and a themed GRC dashboard. These summarize documented checkpoints; they are not live directory or SIEM feeds. The showcase focuses on these three projects and separate professional operations reporting. [Explore the collection](index.html).
+The collection includes interactive IAM and SOC visual summaries and a themed GRC dashboard. These summarize documented checkpoints; they are not live directory or SIEM feeds. The showcase focuses on these three projects. [Explore the collection](index.html).
 
 ```mermaid
 flowchart TB
@@ -71,4 +71,5 @@ The three peer projects share this collection. IAM and SOC share a lab foundatio
 [Portfolio](https://ronealqs2.github.io/) · [Project collection](index.html)
 
 **Evidence status:** IAM/SOC guest artifacts await private export and review. Public visuals summarize the owner’s checkpoint; they do not contain raw guest files.
+
 
