@@ -11,7 +11,7 @@ Risk documentation, controls and reporting—supported by professional operation
 
 [Explore GRC, IAM and SOC projects](https://ronealqs2.github.io/projects/) · [Project documentation](projects/README.md)
 
-The collection presents the existing Sentinel GRC assessment alongside separate guided IAM/Active Directory and SOC authentication-analysis labs. IAM/SOC work is in progress; guest evidence export/review remains pending. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned. The public project showcase focuses on these three projects and professional operations reporting. Original assessment records and the workbook are unchanged.
+The collection presents the existing Sentinel GRC assessment alongside separate guided IAM/Active Directory and SOC authentication-analysis labs. IAM/SOC work is in progress; guest evidence export/review remains pending. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned. The public project showcase focuses on these three projects. Original assessment records and the workbook are unchanged.
 
 ## Start with these projects
 
@@ -21,7 +21,6 @@ The collection presents the existing Sentinel GRC assessment alongside separate 
 | [Sentinel GRC Assessment](https://ronealqs2.github.io/grc/sentinel/) | Four-risk register, formula-linked Excel executive dashboard, risk ownership, control and evidence status, remediation progress and data-quality checks. [Interactive workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html). | Independent fictional training; validation pending. |
 | [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Account provisioning, security groups, domain login and applied-policy checks. | Guided home lab in progress; evidence export/review pending. |
 | [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html) | Windows authentication-event review and controlled incorrect-password test. | Guided local analysis in progress; domain-controller investigation open. |
-| [Unit Movement Operations Reporting & Control Suite](https://ronealqs2.github.io/operations-reporting.html) | Linked Excel reporting, exception tracking and management summaries. | Professional work; public illustrations use synthetic data. |
 
 
 [Browse all projects](https://ronealqs2.github.io/#projects) · [Skills and supporting work](https://ronealqs2.github.io/#skills) · [Education and verified training](https://ronealqs2.github.io/#training)
@@ -45,7 +44,7 @@ The portfolio distinguishes completed deliverables from evidence collection, con
 
 
 
-Public-safe static portfolio overview. The active showcase includes guided IAM/SOC case studies, professional reporting, credential context, a public-safe resume and the independent Sentinel GRC training project. Legacy academic pages remain archived at their existing URLs but are no longer promoted in the showcase. Google curriculum is not represented as personally completed portfolio artifacts.
+Public-safe static portfolio overview. The active showcase includes guided IAM/SOC case studies, credential context, a public-safe resume and the independent Sentinel GRC training project. Legacy academic pages remain archived at their existing URLs but are no longer promoted in the showcase. Google curriculum is not represented as personally completed portfolio artifacts.
 
 
 
@@ -87,6 +86,7 @@ The private package needs server-enforced authentication across all files and ho
 
 
 </details>
+
 
 
 
