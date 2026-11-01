@@ -26,7 +26,7 @@ function updateResults() {
   if (moreProjects && (activeFilter !== 'All' || query)) moreProjects.open = true;
   let visibleCount = 0;
   for (const card of projectCards) {
-    const matchesCategory = activeFilter === 'All' || card.dataset.category === activeFilter;
+    const matchesCategory = activeFilter === 'All' || card.dataset.category === activeFilter || (card.dataset.tracks || '').split(' ').includes(activeFilter);
     const matchesQuery = `${card.dataset.search} ${card.textContent}`.toLowerCase().includes(query);
     card.hidden = !(matchesCategory && matchesQuery);
     if (!card.hidden) visibleCount += 1;
@@ -36,7 +36,7 @@ function updateResults() {
   }
   noResults.hidden = visibleCount !== 0;
   resultsStatus.textContent = moreProjects && !moreProjects.open && activeFilter === 'All' && !query
-    ? `${visibleCount} projects available · 3 featured`
+    ? `${visibleCount} projects available · 3 core projects + selected academic work`
     : `${visibleCount} project${visibleCount === 1 ? '' : 's'} shown`;
 }
 
@@ -81,4 +81,5 @@ window.addEventListener('pageshow', event => {
     history.replaceState(history.state, '', address.pathname + address.search + address.hash);
   }));
 });
+
 

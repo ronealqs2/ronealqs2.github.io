@@ -7,6 +7,12 @@ Risk documentation, controls and reporting—supported by professional operation
 **[Visit the live portfolio →](https://ronealqs2.github.io/)** · [Resume and experience](https://ronealqs2.github.io/#resume) · [LinkedIn](https://www.linkedin.com/in/rolando-quinonez-18173a399/)
 
 
+## Cybersecurity project collection
+
+[Explore GRC, IAM and SOC projects](https://ronealqs2.github.io/projects/) · [Project documentation](projects/README.md)
+
+The collection presents the existing Sentinel GRC assessment alongside separate guided IAM/Active Directory and SOC authentication-analysis labs. IAM/SOC work is in progress; guest evidence export/review remains pending. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned. Selected academic work is prioritized on the homepage; supporting work remains expandable and searchable. Original assessment records and the workbook are unchanged.
+
 ## Start with these projects
 
 
@@ -80,4 +86,5 @@ The private package needs server-enforced authentication across all files and ho
 
 
 </details>
+
 
