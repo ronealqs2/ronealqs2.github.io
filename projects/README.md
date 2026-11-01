@@ -1,14 +1,14 @@
 # Cybersecurity Project Collection
 
-**GRC focus · IAM and SOC home-lab projects · Portfolio project documentation**
+**SOC analysis · Identity and access management · Governance, risk and compliance**
 
 I connect risk documentation with hands-on identity administration and authentication-log analysis. This collection presents three distinct projects together, with separate scope, results and evidence for each.
 
 | Project | Focus and keywords | Status |
 | --- | --- | --- |
-| [Sentinel GRC Assessment](grc.html) | Risk register, control mapping, evidence planning, remediation tracking, thematic charts | Fictional planning deliverables complete; assessment activities pending validation. Original assessment and workspace remain separate and unchanged. |
-| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Home lab in progress; configuration and session checks completed; evidence export/review pending. |
 | [SOC Authentication Analysis](soc.html) | Windows event logs, authentication analysis, failed-logon triage, controlled testing, investigation documentation | local log-analysis project in progress; domain-controller investigation open. |
+| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Home lab in progress; configuration and session checks completed; evidence export/review pending. |
+| [Sentinel GRC Assessment](grc.html) | Risk register, control mapping, evidence planning, remediation tracking, thematic charts | Fictional planning deliverables complete; assessment activities pending validation. Original assessment and workspace remain separate and unchanged. |
 
 ## Shared environment
 
@@ -71,6 +71,7 @@ The three peer projects share this collection. IAM and SOC share a lab foundatio
 [Portfolio](https://ronealqs2.github.io/) · [Project collection](index.html)
 
 **Evidence status:** IAM/SOC guest artifacts await private export and review. Public visuals summarize the owner’s checkpoint; they do not contain raw guest files.
+
 
 
 
