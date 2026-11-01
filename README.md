@@ -1,7 +1,7 @@
-# Rolando Quinonez | GRC & Security Compliance Portfolio
+# Rolando Quinonez | Cybersecurity Portfolio
 
 
-Risk documentation, controls and reporting—supported by professional operational compliance experience, IAM/SOC home-lab practice and independent GRC training.
+SOC authentication analysis, identity administration and GRC risk/control documentation—supported by hands-on projects and professional operational compliance, leadership and reporting experience.
 
 
 **[Visit the live portfolio →](https://ronealqs2.github.io/)** · [Resume and experience](https://ronealqs2.github.io/#resume) · [LinkedIn](https://www.linkedin.com/in/rolando-quinonez-18173a399/)
@@ -18,9 +18,9 @@ The collection presents the existing Sentinel GRC assessment alongside separate 
 
 | Project | Evidence and capabilities | Context |
 | --- | --- | --- |
-| [Sentinel GRC Assessment](https://ronealqs2.github.io/grc/sentinel/) | Four-risk register, formula-linked Excel executive dashboard, risk ownership, control and evidence status, remediation progress and data-quality checks. [Interactive workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html). | Independent fictional training; validation pending. |
-| [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Account provisioning, security groups, domain login and applied-policy checks. | home lab in progress; evidence export/review pending. |
 | [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html) | Windows authentication-event review and controlled incorrect-password test. | local analysis in progress; domain-controller investigation open. |
+| [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Account provisioning, security groups, domain login and applied-policy checks. | home lab in progress; evidence export/review pending. |
+| [Sentinel GRC Assessment](https://ronealqs2.github.io/grc/sentinel/) | Four-risk register, formula-linked Excel executive dashboard, risk ownership, control and evidence status, remediation progress and data-quality checks. [Interactive workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html). | Independent fictional training; validation pending. |
 
 
 [Browse all projects](https://ronealqs2.github.io/#projects) · [Skills and supporting work](https://ronealqs2.github.io/#skills) · [Education and verified training](https://ronealqs2.github.io/#training)
@@ -86,6 +86,7 @@ The private package needs server-enforced authentication across all files and ho
 
 
 </details>
+
 
 
 
