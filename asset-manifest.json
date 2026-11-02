@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6b6f92c3.css",
+    "main.js": "/static/js/main.c2a7b397.js",
+    "grc.css": "/static/css/grc.4e7be429.css",
+    "grc.js": "/static/js/grc.a9ab3c23.js",
+    "soc.css": "/static/css/soc.4e7be429.css",
+    "soc.js": "/static/js/soc.2db73b38.js",
+    "iam.css": "/static/css/iam.4e7be429.css",
+    "iam.js": "/static/js/iam.cfe850c5.js",
+    "collection.css": "/static/css/collection.4e7be429.css",
+    "collection.js": "/static/js/collection.63f66c69.js",
+    "projects/index.html": "/projects/index.html",
+    "projects/soc.html": "/projects/soc.html",
+    "projects/grc.html": "/projects/grc.html",
+    "projects/iam.html": "/projects/iam.html",
+    "index.html": "/index.html",
+    "main.6b6f92c3.css.map": "/static/css/main.6b6f92c3.css.map",
+    "main.c2a7b397.js.map": "/static/js/main.c2a7b397.js.map",
+    "grc.4e7be429.css.map": "/static/css/grc.4e7be429.css.map",
+    "grc.a9ab3c23.js.map": "/static/js/grc.a9ab3c23.js.map",
+    "soc.4e7be429.css.map": "/static/css/soc.4e7be429.css.map",
+    "soc.2db73b38.js.map": "/static/js/soc.2db73b38.js.map",
+    "iam.4e7be429.css.map": "/static/css/iam.4e7be429.css.map",
+    "iam.cfe850c5.js.map": "/static/js/iam.cfe850c5.js.map",
+    "collection.4e7be429.css.map": "/static/css/collection.4e7be429.css.map",
+    "collection.63f66c69.js.map": "/static/js/collection.63f66c69.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6b6f92c3.css",
+    "static/js/main.c2a7b397.js"
+  ]
+}

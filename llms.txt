@@ -1,0 +1,14 @@
+# Rolando Quinonez — Cybersecurity Portfolio
+
+> Cybersecurity graduate and U.S. Army veteran. Hands-on projects across SOC authentication analysis, IAM & Active Directory administration, and GRC risk documentation, with honest, evidence-qualified status for each.
+
+## Pages
+- [Portfolio home](https://ronealqs2.github.io/): overview, projects, skills with sources, professional experience, public résumé overview, education & credentials.
+- [Project collection](https://ronealqs2.github.io/projects/): the three projects side by side with skills in context.
+- [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html): Windows authentication-event review (4624/4625), one controlled incorrect-password test, open domain-controller investigation. Home lab, in progress; SIEM planned.
+- [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html): OUs, employee account provisioning, security groups, domain login, 900-second screen-lock policy check. Home lab, in progress.
+- [Sentinel GRC Assessment](https://ronealqs2.github.io/projects/grc.html): fictional assessment with four provisional risks linked to proposed controls, planned evidence requests and remediation actions. Deliverables complete; validation pending.
+
+## Contact
+- LinkedIn: https://www.linkedin.com/in/rolando-quinonez-18173a399/
+- GitHub: https://github.com/ronealqs2
