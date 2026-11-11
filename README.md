@@ -2,7 +2,7 @@
 
 **SOC analysis · Identity and access management · Governance, risk and compliance**
 
-I connect hands-on cybersecurity projects with operational audits, SOP development, Excel reporting and team leadership from the U.S. Army and Amentum.
+I connect hands-on cybersecurity projects with project coordination, operational audits, SOP development, Excel reporting and team leadership from the U.S. Army and Amentum.
 
 [Explore the portfolio](https://ronealqs2.github.io/) · [Public résumé overview](https://ronealqs2.github.io/#resume) · [LinkedIn](https://www.linkedin.com/in/rolando-quinonez-18173a399/)
 
@@ -27,6 +27,17 @@ IAM and SOC share a home lab and remain in progress. Sentinel GRC is a separate 
 
 These employment achievements retain their operational context. Cybersecurity lab projects are presented separately.
 
+## Project management, operations and reporting
+
+- Project planning and coordination: movement timelines, training activities, workforce schedules and resource allocation across Army and Amentum responsibilities.
+- Stakeholder coordination and status reporting: command teams, government personnel, airlines and transportation partners.
+- Budget management: Workday timekeeping, expense and procurement approvals at Amentum.
+- Risk and issue tracking: documented operational deficiencies, scheduling conflicts and follow-up needs.
+- Team leadership, training coordination, requirements interpretation and SOP development.
+- Excel reporting, data validation and Power Query experience.
+
+Framework knowledge from NIST/RMF, ISO, SOC 2 and COBIT coursework and Lean Six Sigma Yellow Belt process-improvement foundations are presented separately from performed employment activities.
+
 ## Education and credentials
 
 B.S. Cybersecurity, American Military University. Graduate Certificate in Cybersecurity and Information Assurance, Keller/DeVry, in progress. Selected credentials include the Google Cybersecurity Professional Certificate, Infosec Cybersecurity Risk Management Framework specialization and Certified Lean Six Sigma Yellow Belt.
@@ -48,3 +59,4 @@ Static portfolio published with GitHub Pages, with React-built presentation page
 Public examples use fictional/sample business data. Only reviewed sanitized evidence excerpts should be published; credentials, private application résumés, employer records and VM images are excluded. Current IAM/SOC guest artifacts await private export and review.
 
 Status confirmed November 11, 2026. Presentation updates do not represent new lab or assessment results.
+

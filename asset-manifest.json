@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.e379e416.css",
-    "main.js": "/static/js/main.425d5747.js",
-    "grc.css": "/static/css/grc.947d9d81.css",
+    "main.css": "/static/css/main.01b79f9a.css",
+    "main.js": "/static/js/main.755e3353.js",
+    "grc.css": "/static/css/grc.d7495d1f.css",
     "grc.js": "/static/js/grc.64a5abde.js",
-    "soc.css": "/static/css/soc.947d9d81.css",
+    "soc.css": "/static/css/soc.d7495d1f.css",
     "soc.js": "/static/js/soc.f0a654bf.js",
-    "iam.css": "/static/css/iam.947d9d81.css",
+    "iam.css": "/static/css/iam.d7495d1f.css",
     "iam.js": "/static/js/iam.8c5ef6c6.js",
-    "collection.css": "/static/css/collection.947d9d81.css",
+    "collection.css": "/static/css/collection.d7495d1f.css",
     "collection.js": "/static/js/collection.63f66c69.js",
     "projects/index.html": "/projects/index.html",
     "projects/soc.html": "/projects/soc.html",
@@ -17,7 +17,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.e379e416.css",
-    "static/js/main.425d5747.js"
+    "static/css/main.01b79f9a.css",
+    "static/js/main.755e3353.js"
   ]
 }
