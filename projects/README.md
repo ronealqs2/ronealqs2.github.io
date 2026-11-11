@@ -29,7 +29,7 @@ The IAM and SOC projects share this local lab. This logical view does not establ
 
 **Business purpose:** practice structured employee access and workstation security-policy administration.
 
-**My completed work with guidance:** established the domain/client environment; created employee, administrative-account, group and workstation OUs; placed the client in the workstation OU; created a fictional employee; verified employee-group membership and domain login; configured a 900-second screen-lock GPO and checked its application, registry value and computer-policy report.
+**My work completed:** established the domain/client environment; created employee, administrative-account, group and workstation OUs; placed the client in the workstation OU; created a fictional employee; verified employee-group membership and domain login; configured a 900-second screen-lock GPO and checked its application, registry value and computer-policy report.
 
 **Current conclusions:** the employee group appeared in the observed session groups and Administrators did not. This is a session observation, not a complete least-privilege assessment. Screen-lock policy application was checked; timed automatic locking was not observed.
 
@@ -41,7 +41,7 @@ The IAM and SOC projects share this local lab. This logical view does not establ
 
 **Business purpose:** explain authentication activity, document investigation reasoning and identify visibility questions requiring further review.
 
-**My completed work with guidance:** reviewed a successful unlock (4624, type 7); triaged a separate administrator failure (4625, status 0xC000010B, consent.exe caller); generated one authorized incorrect-password runas attempt for a fictional employee, recorded locally as 4625/status 0xC000006D/substatus 0xC000006A; reviewed domain-controller 4771/4776 results without identifying a matching failure.
+**My work completed:** reviewed a successful unlock (4624, type 7); triaged a separate administrator failure (4625, status 0xC000010B, consent.exe caller); generated one authorized incorrect-password runas attempt for a fictional employee, recorded locally as 4625/status 0xC000006D/substatus 0xC000006A; reviewed domain-controller 4771/4776 results without identifying a matching failure.
 
 **Current conclusions:** the controlled test produced a local failure event. An elevation-related cause for the separate administrator failure is suspected, not confirmed. No matching failure in reviewed domain-controller results does not establish that auditing is disabled or an event never occurred.
 
@@ -51,18 +51,15 @@ The IAM and SOC projects share this local lab. This logical view does not establ
 
 ## Sentinel GRC Assessment — existing separate project
 
-The [existing assessment](https://ronealqs2.github.io/grc/sentinel/) and [workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html) contain four linked provisional risk/control/evidence-request/action chains. Planning deliverables are complete; evidence collection, assessment and remediation remain pending. IAM/SOC lab results do not fulfill its E-001–E-004 requests, validate its findings or close its actions. No workbook changes are proposed.
+The [current case study](https://ronealqs2.github.io/projects/grc.html), [original brief](https://ronealqs2.github.io/grc/sentinel/) and [workspace](https://ronealqs2.github.io/grc/sentinel/workspace.html) contain four linked provisional risk/control/evidence-request/action chains. Planning deliverables are complete; evidence collection, assessment and remediation remain pending. IAM/SOC lab results do not fulfill its E-001–E-004 requests, validate its findings or close its actions. No workbook changes are proposed.
 
-## Evidence and publication boundaries
+## Evidence and publication
 
-- Technical projects are home-lab projects, not employment, client work or production operations.
-- Business data is fictional/sample data. Training systems are separate from actual business operations and security posture.
-- Public narratives use roles such as domain controller, workstation and fictional employee. Hostnames, domain/account names, original filenames and source-path mappings belong in the private evidence register.
-- Only clipboard sharing has been tested. Guest files are not assumed accessible from the host; no evidence transfer or independent content review is claimed.
-- Retain private originals and publish only reviewed sanitized excerpts. No credentials, VM images or unreviewed raw evidence are included.
-- Record purpose, context, procedure, expected/actual outcome, timestamp/time zone, evidence ID and limitations for each test.
-- A confirmed lab gap can lead to a separate HL-F finding and HL-A action with acceptance criteria and retest evidence. Observations do not automatically become findings.
-- Do not claim comprehensive least privilege, effective automatic locking, confirmed root cause, complete audit coverage, SIEM operation, verified remediation or compliance.
+[Evidence index and collection status](lab/evidence-index.md) · [Proposed control tests](lab/control-test-plan.md) · [Next milestones](lab/next-milestones.md)
+
+The technical projects are home-lab work with fictional/sample business data. Notes, a policy report and event exports remain in the Windows guest; only clipboard sharing has been tested. Private transfer and review are needed before publishing sanitized excerpts. The evidence index lists what exists and what still needs collecting.
+
+Keep credentials, VM images, employer records and original identifiers private. Test records should show purpose, procedure, expected/actual outcome, time zone, evidence ID, interpretation and remaining questions. A documented observation is distinct from a confirmed finding or a verified remediation.
 
 ## Project organization
 
@@ -75,3 +72,6 @@ The three peer projects share this collection. IAM and SOC share a lab foundatio
 
 
 
+
+
+Status confirmed November 11, 2026. This documentation update adds no new lab results.
