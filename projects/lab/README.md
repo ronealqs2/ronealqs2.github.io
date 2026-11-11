@@ -21,8 +21,8 @@ This is a logical role diagram, not a claim of network segmentation or Ubuntu do
 - Created four OUs and a fictional employee account with employee-group membership.
 - Verified domain login and observed session groups; Administrators was absent from that observed session.
 - Configured a 900-second screen-lock GPO and checked its application, registry value and HTML policy report. Timed locking is still untested.
-- Reviewed a successful-unlock event and two failure examples, including one authorized incorrect-password test that produced a workstation event4625.
-- Investigated domain-controller authentication visibility; no matching failure was identified in the reviewed4771/4776 results. Audit-configuration follow-up remains open.
+- Reviewed a successful-unlock event and two failure examples, including one authorized incorrect-password test that produced a workstation event 4625.
+- Investigated domain-controller authentication visibility; no matching failure was identified in the reviewed 4771/4776 results. Audit-configuration follow-up remains open.
 
 ## Evidence and next tests
 

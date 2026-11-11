@@ -7,9 +7,9 @@
 | HL-E-001 | Access-verification note | Saved in guest, export/review pending | Domain login and observed session groups |
 | HL-E-002 | Authentication investigation note | Saved in guest, export/review pending | Procedure, query scope and investigation reasoning |
 | HL-E-003 | Computer-policy HTML report | Saved in guest, export/review pending | Applied screen-lock policy setting |
-| HL-E-004 | Successful-unlock event export | Saved in guest, export/review pending | Event4624, type7; not proof of timed automatic locking |
+| HL-E-004 | Successful-unlock event export | Saved in guest, export/review pending | Event 4624, type 7; not proof of timed automatic locking |
 | HL-E-005 | Administrator-failure export | Saved in guest, export/review pending | Observed failure fields; causal hypothesis remains unconfirmed |
-| HL-E-006 | Controlled failed-password export | Saved in guest, export/review pending | One local4625 event, status0xC000006D/substatus0xC000006A |
+| HL-E-006 | Controlled failed-password export | Saved in guest, export/review pending | One local 4625 event, status 0xC000006D/substatus 0xC000006A |
 | HL-E-007 | Directory/account/group screenshots | Collection/export needed | OU placement and intended memberships |
 | HL-E-008 | GPO scope and registry screenshots | Collection/export needed | Policy configuration and application |
 | HL-E-009 | Audit policy and query context | Collection needed | Audit settings, time window/time zone and authentication path |

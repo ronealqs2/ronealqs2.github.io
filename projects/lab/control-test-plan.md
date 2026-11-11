@@ -16,7 +16,7 @@ Record: test ID; objective/reference; scope; prerequisite; procedure; expected o
 
 ## Illustrative control references
 
-IAM exercises relate to NIST SP800-53 Rev.5 AC-2 Account Management, AC-6 Least Privilege and AC-11 Device Lock. Authentication exercises relate to AU-2 Event Logging, AU-6 Audit Record Review, Analysis, and Reporting, and AU-12 Audit Record Generation. These are learning mappings, not full assessments or equivalence/compliance claims. [NIST reference](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final).
+IAM exercises relate to NIST SP 800-53 Rev. 5 AC-2 Account Management, AC-6 Least Privilege and AC-11 Device Lock. Authentication exercises relate to AU-2 Event Logging, AU-6 Audit Record Review, Analysis, and Reporting, and AU-12 Audit Record Generation. These are learning mappings, not full assessments or equivalence/compliance claims. [NIST reference](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final).
 
 Review the scope of each control and its organization-defined parameters before using it in a formal assessment.
 
