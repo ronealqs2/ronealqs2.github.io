@@ -1,18 +1,12 @@
 # Home-lab next milestones
 
-**Future work. None of the milestones below is a newly completed result.**
+Completed checkpoint: private evidence export/review, PowerShell summary tooling with27initial checks, a separate two-category audit change and observed Kerberos failure visibility. IAM15-minute automatic lock and authentication to resume are owner-confirmed. These do not establish the original missing-event cause or complete all IAM/SOC work.
 
-1. Privately export the existing access note, investigation note, policy report and three event exports. Retain originals; review sanitized excerpts before publication.
-2. Finish the screen-lock runtime test and domain-controller audit-visibility follow-up using the [test plan](control-test-plan.md).
-3. Demonstrate an approved fictional joiner/mover/leaver workflow and a resource-access review.
-4. Install the separate Wazuh server, verify collection and document one event-to-investigation workflow. Validate collection before claiming alerting or detection coverage.
-5. Build and test small PowerShell account-reporting and event-querying scripts; then use SQL to compare fictional account/approval/access data. Publish scripts only after test results and sample outputs are reviewed.
-6. Document a separate lab control-test record linking the IAM/SOC evidence to a control objective. Preserve the original Sentinel assessment's evidence and validation status.
+1. Retain a runtime timing record for the confirmed lock check and screenshots for the evidence index.
+2. Preserve complete attempt timing and console output in future investigations; do not rerun solely to reconstruct missing historical records.
+3. Demonstrate joiner/mover/leaver and resource-access review exercises.
+4. Install the separate Wazuh server and verify collection before claiming SIEM alerting or detection.
+5. Extend tested PowerShell practice and use SQL with fictional account/approval/access data.
+6. Document separate lab control-test records. Do not change the canonical Sentinel assessment's evidence or closure status based on lab activity.
 
-Later options: Splunk exercises, its query language and scenario automation. Keep one working collection/investigation path ahead of adding more platforms.
-
-## Milestone-post structure
-
-When an exercise is completed, describe the question, procedure, actual observation, interpretation, remaining limitation and direct case-study link. Update existing projects and evidence indexes rather than duplicating projects or repeatedly announcing the same checkpoint.
-
-[Lab documentation](README.md)
+Splunk and wider automation remain planned. [Current evidence](evidence-index.md) · [Lab documentation](README.md)

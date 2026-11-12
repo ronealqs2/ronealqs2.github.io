@@ -1,23 +1,22 @@
 # Home-lab evidence index
 
-**Availability at the confirmed checkpoint: guest artifacts await private export/review. No sanitized evidence excerpts have been published.**
+Updated November12,2026. Received historical artifacts and new-case exports were privately reviewed. Raw evidence remains private.
 
-| ID | Artifact | Availability | Intended use |
+| ID | Artifact | Review status | Interpretation limit |
 | --- | --- | --- | --- |
-| HL-E-001 | Access-verification note | Saved in guest, export/review pending | Domain login and observed session groups |
-| HL-E-002 | Authentication investigation note | Saved in guest, export/review pending | Procedure, query scope and investigation reasoning |
-| HL-E-003 | Computer-policy HTML report | Saved in guest, export/review pending | Applied screen-lock policy setting |
-| HL-E-004 | Successful-unlock event export | Saved in guest, export/review pending | Event 4624, type 7; not proof of timed automatic locking |
-| HL-E-005 | Administrator-failure export | Saved in guest, export/review pending | Observed failure fields; causal hypothesis remains unconfirmed |
-| HL-E-006 | Controlled failed-password export | Saved in guest, export/review pending | One local 4625 event, status 0xC000006D/substatus 0xC000006A |
-| HL-E-007 | Directory/account/group screenshots | Collection/export needed | OU placement and intended memberships |
-| HL-E-008 | GPO scope and registry screenshots | Collection/export needed | Policy configuration and application |
-| HL-E-009 | Audit policy and query context | Collection needed | Audit settings, time window/time zone and authentication path |
+| HL-E-001 | Access note | Privately reviewed | Employee group present; Administrators absent in that historical session listing |
+| HL-E-002 | Investigation note | Privately reviewed | Original cause remains unresolved |
+| HL-E-003 | Computer-policy report | Privately reviewed |900-second setting; runtime evidence is separate |
+| HL-E-004 | Unlock event | Privately reviewed |4624,type7; not itself evidence of a timed lock |
+| HL-E-005 | Administrator failure | Privately reviewed |Local target context; elevation hypothesis unconfirmed |
+| HL-E-006 | Historical controlled failure | Privately reviewed |4625,status0xC000006D/substatus0xC000006A |
+| HL-E-007–008 | Directory/policy screenshots | Retained images outstanding |Do not infer all effective permissions |
+| HL-E-009 | DC export, audit/time/query context | Privately reviewed |Collection-time settings do not establish historical cause |
+| HL-E-010 | New-case before evidence and audit change | Privately reviewed |Two audit categories changed; preserved before snapshot |
+| HL-E-011 | New-case after export | Privately reviewed |Three employee4771records; source context distinct; exact one-attempt attribution incomplete |
+| HL-E-012 | Summary tool and validation | Source and sanitized validation published |27initial checks; later real4771field checks separate |
+| HL-E-013 | Timed lock and resume | Owner-confirmed |15-minute lock and authentication confirmed; retained timing record not supplied |
 
-## Review fields for every future excerpt
+Six historical artifact hashes matched their supplied manifest. The initial full DC export lacked a guest EVTX hash in its supplied manifest; a host fingerprint was recorded without claiming retroactive transfer authentication. All ten recorded hashes in the separate new case matched. Keep originals and exact UTC/source mappings private.
 
-Record evidence ID, capture date/time/time zone, system role, test purpose, expected result, observed result, interpretation, limitation and publication-review status. Keep exact identifiers and private source locations in a private register. Retain originals separately; review sanitized derivatives before adding links here.
-
-Use a visible status of **Not run**, **Observed**, **Needs corroboration**, or **Reviewed for publication**, as applicable. A published screenshot is not automatically validated operating effectiveness.
-
-[Lab documentation](README.md) · [Control-test plan](control-test-plan.md)
+[Sanitized investigation](authentication-review.md) · [Tool](tools/README.md) · [Control-test plan](control-test-plan.md)
