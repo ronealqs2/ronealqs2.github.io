@@ -10,8 +10,8 @@ I connect hands-on cybersecurity projects with project coordination, operational
 
 | Project | Work completed | Next milestone |
 | --- | --- | --- |
-| [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html) | Windows authentication-event review, a controlled incorrect-password test and investigation documentation | Export/review excerpts and investigate domain-controller audit visibility |
-| [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Domain/account administration, four OUs, employee-group and domain-login checks, and 900-second screen-lock policy application checks | Review evidence, observe timed locking and extend account-lifecycle tests |
+| [SOC Authentication Analysis](https://ronealqs2.github.io/projects/soc.html) | Preserved event review, UTC analysis, tested PowerShell summary tool and new Kerberos failure visibility after an audit-policy change | Extend reproducible investigations; original cause and exact single-attempt attribution remain unresolved |
+| [IAM & Active Directory](https://ronealqs2.github.io/projects/iam.html) | Domain/account administration, four OUs, employee-group and domain-login checks, and 15-minute automatic lock/authentication checks (owner-confirmed runtime) | Retain runtime timing evidence and extend account-lifecycle/resource-access tests |
 | [Sentinel GRC Assessment](https://ronealqs2.github.io/projects/grc.html) | Four linked risk chains: 16 risk, proposed control-test, evidence-request and action-planning records; Excel executive dashboard and interactive workspace | Confirm scope and collect approved assessment evidence |
 
 IAM and SOC share a home lab and remain in progress. Sentinel GRC is a separate fictional assessment: planning deliverables are complete; evidence collection, testing and remediation validation remain pending. Lab observations do not validate the original assessment.
@@ -56,7 +56,8 @@ The presentation uses a published snapshot. Browser-local workspace edits neithe
 
 Static portfolio published with GitHub Pages, with React-built presentation pages and the original Sentinel workspace. The three tracks receive equal visibility; role-specific applications can emphasize the most relevant work.
 
-Public examples use fictional/sample business data. Only reviewed sanitized evidence excerpts should be published; credentials, private application résumés, employer records and VM images are excluded. Current IAM/SOC guest artifacts await private export and review.
+Public examples use fictional/sample business data. Only reviewed sanitized evidence excerpts should be published; credentials, private application résumés, employer records and VM images are excluded. Historical IAM/SOC artifacts and separate new-case exports were privately transferred and reviewed. Raw evidence remains private; sanitized summaries and generic tool source are published. Timed IAM behavior is owner-confirmed; a retained runtime timing record is still outstanding.
 
-Status confirmed November 11, 2026. Presentation updates do not represent new lab or assessment results.
+Status updated November 12, 2026. SOC evidence/tool milestones and owner-confirmed IAM timed behavior are documented; the original Sentinel GRC assessment remains unchanged.
+
 
