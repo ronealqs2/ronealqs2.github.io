@@ -6,8 +6,8 @@ I connect risk documentation with hands-on identity administration and authentic
 
 | Project | Focus and keywords | Status |
 | --- | --- | --- |
-| [SOC Authentication Analysis](soc.html) | Windows event logs, authentication analysis, failed-logon triage, controlled testing, investigation documentation | local log-analysis project in progress; domain-controller investigation open. |
-| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Home lab in progress; configuration and session checks completed; evidence export/review pending. |
+| [SOC Authentication Analysis](soc.html) | Windows event logs, authentication analysis, failed-logon triage, controlled testing, investigation documentation | Event review, PowerShell summarization and new failure visibility documented; original cause unresolved. |
+| [IAM & Active Directory](iam.html) | Account provisioning, organizational units, security groups, domain login, Group Policy, access verification | Home lab in progress; configuration/access checks and owner-confirmed15-minute lock/authentication completed; runtime evidence record outstanding. |
 | [Sentinel GRC Assessment](grc.html) | Risk register, control mapping, evidence planning, remediation tracking, thematic charts | Fictional planning deliverables complete; assessment activities pending validation. Original assessment and workspace remain separate and unchanged. |
 
 ## Shared environment
@@ -31,11 +31,11 @@ The IAM and SOC projects share this local lab. This logical view does not establ
 
 **My work completed:** established the domain/client environment; created employee, administrative-account, group and workstation OUs; placed the client in the workstation OU; created a fictional employee; verified employee-group membership and domain login; configured a 900-second screen-lock GPO and checked its application, registry value and computer-policy report.
 
-**Current conclusions:** the employee group appeared in the observed session groups and Administrators did not. This is a session observation, not a complete least-privilege assessment. Screen-lock policy application was checked; timed automatic locking was not observed.
+**Current conclusions:** the employee group appeared in the observed session groups and Administrators did not. This is a session observation, not a complete least-privilege assessment. Screen-lock policy application was checked; the project owner confirmed automatic locking after15minutes idle and authentication to resume. Retained runtime timing evidence remains outstanding.
 
-**Evidence:** HL-E-001 access note and HL-E-003 policy report are reported saved inside the Windows guest. HL-E-007–008 directory/policy screenshots need collection/export. Host export and review remain pending.
+**Evidence:** HL-E-001 access note and HL-E-003 policy report privately transferred and reviewed. HL-E-013 timed behavior confirmed by the owner; retained timing evidence outstanding. HL-E-007–008 screenshots remain to be retained.
 
-**Next:** export/review evidence, document a timed lock test and perform further account-lifecycle/resource-permission exercises. Full lifecycle management is not yet demonstrated.
+**Next:** retain the runtime timing record and perform further account-lifecycle/resource-permission exercises. Full lifecycle management is not yet demonstrated.
 
 ## SOC Authentication Analysis
 
@@ -43,11 +43,11 @@ The IAM and SOC projects share this local lab. This logical view does not establ
 
 **My work completed:** reviewed a successful unlock (4624, type 7); triaged a separate administrator failure (4625, status 0xC000010B, consent.exe caller); generated one authorized incorrect-password runas attempt for a fictional employee, recorded locally as 4625/status 0xC000006D/substatus 0xC000006A; reviewed domain-controller 4771/4776 results without identifying a matching failure.
 
-**Current conclusions:** the controlled test produced a local failure event. An elevation-related cause for the separate administrator failure is suspected, not confirmed. No matching failure in reviewed domain-controller results does not establish that auditing is disabled or an event never occurred.
+**Current conclusions:** the historical workstation failure is documented; the original missing domain match remains unresolved. A separate new case preserved pre-change evidence, changed two audit subcategories from Success only to Success and Failure, and recorded later employee Kerberos failures. One network source matches the workstation's earlier address, but missing console timing prevents exact single-attempt attribution. Two other employee Kerberos failures have controller-loopback context. Event counts are not human-attempt counts.
 
-**Evidence:** HL-E-002 investigation note and HL-E-004–006 event exports are reported saved inside the guest. HL-E-009 audit configuration, filters, time window/time zone and authentication-path context need collection. All exports await private transfer/review.
+**Evidence and tool:** historical artifacts privately reviewed; all ten recorded hashes in the new case match. Built a PowerShell saved-event summary tool with27initial checks against real exports, empty results, missing fields and UTC boundaries. Later checked real4771XMLfields separately with an offline reader. Original logs and identifiers remain private. [Sanitized case review](lab/authentication-review.md) · [Tool and validation](lab/tools/README.md).
 
-**Next:** review audit configuration and query scope; corroborate the administrator-failure hypothesis; repeat a controlled test if appropriate. Wazuh, centralized SIEM collection, Splunk exercises and automation are planned, not deployed or demonstrated.
+**Next:** extend repeatable investigations with complete attempt provenance. Wazuh, centralized SIEM collection, Splunk and wider automation remain planned. A later result does not prove the original cause.
 
 ## Sentinel GRC Assessment — existing separate project
 
@@ -57,7 +57,7 @@ The [current case study](https://ronealqs2.github.io/projects/grc.html), [origin
 
 [Evidence index and collection status](lab/evidence-index.md) · [Proposed control tests](lab/control-test-plan.md) · [Next milestones](lab/next-milestones.md)
 
-The technical projects are home-lab work with fictional/sample business data. Notes, a policy report and event exports remain in the Windows guest; only clipboard sharing has been tested. Private transfer and review are needed before publishing sanitized excerpts. The evidence index lists what exists and what still needs collecting.
+The technical projects are home-lab work with fictional/sample business data. Historical notes, the policy report and event exports have been privately transferred and reviewed. The new case preserves before/after exports separately. Public summaries omit raw identifiers and files. The evidence index lists what exists and what still needs collecting.
 
 Keep credentials, VM images, employer records and original identifiers private. Test records should show purpose, procedure, expected/actual outcome, time zone, evidence ID, interpretation and remaining questions. A documented observation is distinct from a confirmed finding or a verified remediation.
 
@@ -67,11 +67,11 @@ The three peer projects share this collection. IAM and SOC share a lab foundatio
 
 [Portfolio](https://ronealqs2.github.io/) · [Project collection](index.html)
 
-**Evidence status:** IAM/SOC guest artifacts await private export and review. Public visuals summarize the owner’s checkpoint; they do not contain raw guest files.
+**Evidence status:** private artifact review completed for the received material; raw files excluded. Owner-confirmed timed locking is distinguished from retained artifact review.
 
 
 
 
 
 
-Status confirmed November 11, 2026. This documentation update adds no new lab results.
+Updated November12,2026 with verified SOC evidence/tool work and owner-confirmed IAM timed behavior.
