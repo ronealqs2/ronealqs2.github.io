@@ -36,11 +36,11 @@ These employment achievements retain their operational context. Cybersecurity la
 - Team leadership, training coordination, requirements interpretation and SOP development.
 - Excel reporting, data validation and Power Query experience.
 
-Framework knowledge from NIST/RMF, ISO, SOC 2 and COBIT coursework and Lean Six Sigma Yellow Belt process-improvement foundations are presented separately from performed employment activities.
+Framework knowledge from NIST/RMF, ISO, SOC 2 and COBIT coursework and Lean Six Sigma Yellow Belt and White Belt process-improvement foundations are presented separately from performed employment activities.
 
 ## Education and credentials
 
-B.S. Cybersecurity, American Military University. Graduate Certificate in Cybersecurity and Information Assurance, Keller/DeVry, in progress. Selected credentials include the Google Cybersecurity Professional Certificate, Infosec Cybersecurity Risk Management Framework specialization and Certified Lean Six Sigma Yellow Belt.
+B.S. Cybersecurity, American Military University. Graduate Certificate in Cybersecurity and Information Assurance, Keller/DeVry, in progress. Selected credentials include the Google Cybersecurity Professional Certificate, Infosec Cybersecurity Risk Management Framework specialization and Lean Six Sigma Yellow Belt and White Belt credentials.
 
 [View issuer links and completed learning records](https://ronealqs2.github.io/#credentials)
 
@@ -61,3 +61,5 @@ Public examples use fictional/sample business data. Only reviewed sanitized evid
 Status updated November 12, 2026. SOC evidence/tool milestones and owner-confirmed IAM timed behavior are documented; the original Sentinel GRC assessment remains unchanged.
 
 
+
+Lean Six Sigma White Belt — Star Global College of Workforce Development. Issued November 18, 2026 (issuer-record date); no expiry date. [Credential yewqmjkgqt](https://workforce.starglobal.education/certificates/yewqmjkgqt). Foundational process-improvement credential; the Yellow Belt remains featured in the portfolio.
