@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.01b79f9a.css",
-    "main.js": "/static/js/main.24c44a04.js",
+    "main.js": "/static/js/main.87260c76.js",
     "grc.css": "/static/css/grc.d7495d1f.css",
     "grc.js": "/static/js/grc.64a5abde.js",
     "soc.css": "/static/css/soc.d7495d1f.css",
@@ -18,6 +18,6 @@
   },
   "entrypoints": [
     "static/css/main.01b79f9a.css",
-    "static/js/main.24c44a04.js"
+    "static/js/main.87260c76.js"
   ]
 }

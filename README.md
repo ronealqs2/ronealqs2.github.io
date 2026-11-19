@@ -63,3 +63,7 @@ Status updated November 12, 2026. SOC evidence/tool milestones and owner-confirm
 
 
 Lean Six Sigma White Belt — Star Global College of Workforce Development. Issued November 18, 2026 (issuer-record date); no expiry date. [Credential yewqmjkgqt](https://workforce.starglobal.education/certificates/yewqmjkgqt). Foundational process-improvement credential; the Yellow Belt remains featured in the portfolio.
+
+## Amentum operational governance and project coordination
+
+Transportation Supervisor, November 2023–November 2025. Experience includes operational compliance audits and inspection support, requirements interpretation, department SOP development, records validation and Excel reporting, workforce and stakeholder coordination, and budget management. These are transferable operational controls and project-management responsibilities; cybersecurity technical work is documented in the separate SOC, IAM and GRC projects.
