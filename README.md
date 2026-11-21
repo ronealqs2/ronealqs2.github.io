@@ -36,11 +36,11 @@ These employment achievements retain their operational context. Cybersecurity la
 - Team leadership, training coordination, requirements interpretation and SOP development.
 - Excel reporting, data validation and Power Query experience.
 
-Framework knowledge from NIST/RMF, ISO, SOC 2 and COBIT coursework and Lean Six Sigma Yellow Belt and White Belt process-improvement foundations are presented separately from performed employment activities.
+Framework knowledge from NIST/RMF, ISO, SOC 2 and COBIT coursework and Lean Six Sigma Green Belt certification and Yellow Belt and White Belt process-improvement foundations are presented separately from performed employment activities.
 
 ## Education and credentials
 
-B.S. Cybersecurity, American Military University. Graduate Certificate in Cybersecurity and Information Assurance, Keller/DeVry, in progress. Selected credentials include the Google Cybersecurity Professional Certificate, Infosec Cybersecurity Risk Management Framework specialization and Lean Six Sigma Yellow Belt and White Belt credentials.
+B.S. Cybersecurity, American Military University. Graduate Certificate in Cybersecurity and Information Assurance, Keller/DeVry, in progress. Selected credentials include the Google Cybersecurity Professional Certificate, Infosec Cybersecurity Risk Management Framework specialization and Lean Six Sigma Green Belt, Yellow Belt and White Belt credentials.
 
 [View issuer links and completed learning records](https://ronealqs2.github.io/#credentials)
 
@@ -62,8 +62,10 @@ Status updated November 12, 2026. SOC evidence/tool milestones and owner-confirm
 
 
 
-Lean Six Sigma White Belt — Star Global College of Workforce Development. Issued November 18, 2026 (issuer-record date); no expiry date. [Credential yewqmjkgqt](https://workforce.starglobal.education/certificates/yewqmjkgqt). Foundational process-improvement credential; the Yellow Belt remains featured in the portfolio.
+Lean Six Sigma White Belt — Star Global College of Workforce Development. Issued November 18, 2026 (issuer-record date); no expiry date. [Credential yewqmjkgqt](https://workforce.starglobal.education/certificates/yewqmjkgqt). Foundational process-improvement credential; the Green Belt is now featured in the portfolio.
 
 ## Amentum operational governance and project coordination
 
 Transportation Supervisor, November 2023–November 2025. Experience includes operational compliance audits and inspection support, requirements interpretation, department SOP development, records validation and Excel reporting, workforce and stakeholder coordination, and budget management. These are transferable operational controls and project-management responsibilities; cybersecurity technical work is documented in the separate SOC, IAM and GRC projects.
+
+Certified Lean Six Sigma Green Belt — Star Global College of Workforce Development. Issued November 21, 2026 (issuer-record date); no expiry date. [Credential i3bdncbp92](https://workforce.starglobal.education/certificates/i3bdncbp92). Yellow Belt and White Belt remain in the expanded credential history. This credential does not change the separately documented validation status of the cybersecurity projects.
